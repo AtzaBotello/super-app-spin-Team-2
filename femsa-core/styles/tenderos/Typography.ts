@@ -1,4 +1,4 @@
-import { LightTheme } from '.';
+import { LightTheme } from '../tenderos';
 import type { SizesType, LineHeightType, FontFamilyType } from '../types';
 
 /**

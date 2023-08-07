@@ -1,4 +1,4 @@
-import { LightTheme } from '.';
+import { LightTheme } from '../spinplus';
 import type { SizesType, LineHeightType, FontFamilyType } from '../types';
 
 /**
