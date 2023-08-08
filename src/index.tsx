@@ -1,8 +1,8 @@
-import 'react-native-gesture-handler';
-import React from 'react';
-import {SafeAreaView} from 'react-native';
-import {Button, ThemeProvider} from '@femsa-core';
-import {HomeScreen} from '@presentation/home/screens';
+import 'react-native-gesture-handler'
+import React from 'react'
+import { SafeAreaView } from 'react-native'
+import { Button, ThemeProvider } from '@femsa-core'
+import { HomeScreen } from '@presentation/home/screens'
 
 const App = () => {
   return (
@@ -12,7 +12,7 @@ const App = () => {
         <HomeScreen />
       </SafeAreaView>
     </ThemeProvider>
-  );
-};
+  )
+}
 
-export default App;
+export default App
