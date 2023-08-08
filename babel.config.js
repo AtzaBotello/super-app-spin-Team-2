@@ -19,6 +19,7 @@ module.exports = {
         root: ['.'],
         alias: {
           '@femsa-core': './femsa-core',
+          '@presentation': './src/presentation',
         },
       },
     ],

@@ -1,9 +1,10 @@
 {
-  "extends": "@tsconfig/react-native/tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@femsa-core": ["femsa-core"]
+      "@femsa-core": ["femsa-core"],
+      "@presentation/*": ["src/presentation/*"]
     }
-  }
+  },
+  "extends": "@tsconfig/react-native/tsconfig.json"
 }
