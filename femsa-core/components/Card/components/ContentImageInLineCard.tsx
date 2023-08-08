@@ -1,20 +1,20 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import BaseCard from './BaseCard';
-import useThemedStyles from '../../../hooks/useThemedStyles';
-import type { BaseCardProps } from '../types';
-import Text from '../../Text/Text';
-import type { ThemeContextType } from '../../../../src/theme/types';
-import Tag from '../../atoms/Tag/index';
-import Icon from '../../atoms/Icon/Icon';
+import React from 'react'
+import { View, StyleSheet } from 'react-native'
+import BaseCard from './BaseCard'
+import useThemedStyles from '../../../hooks/useThemedStyles'
+import type { BaseCardProps } from '../types'
+import Text from '../../Text/Text'
+import type { ThemeContextType } from '../../../theme/types'
+import Tag from '../../atoms/Tag/index'
+import Icon from '../../atoms/Icon/Icon'
 
 type ContentImageInLineCardProps = Omit<
   BaseCardProps,
   'image|iconContainerStyles'
->;
+>
 
 function ContentImageInLineCard(props: ContentImageInLineCardProps) {
-  const themedStyle = useThemedStyles(styles);
+  const themedStyle = useThemedStyles(styles)
   return (
     <BaseCard {...props} style={themedStyle.card}>
       <View style={themedStyle.container}>
@@ -67,7 +67,7 @@ function ContentImageInLineCard(props: ContentImageInLineCardProps) {
         </View>
       </View>
     </BaseCard>
-  );
+  )
 }
 
 const styles = (theme: ThemeContextType) =>
@@ -126,6 +126,6 @@ const styles = (theme: ThemeContextType) =>
       color: theme.colors.content_tertiary,
     },
     tag: { left: 10 },
-  });
+  })
 
-export default ContentImageInLineCard;
+export default ContentImageInLineCard

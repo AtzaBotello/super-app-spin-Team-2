@@ -1,15 +1,14 @@
-/* eslint-disable react-native/no-inline-styles */
-import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
-import BaseCard from './BaseCard';
-import useThemedStyles from '../../../hooks/useThemedStyles';
-import type { BaseCardProps } from '../types';
-import Text from '../../Text/Text';
-import Tag from '../../atoms/Tag/index';
-import type { ThemeContextType } from 'src/theme/types';
+import React from 'react'
+import { View, StyleSheet, Image } from 'react-native'
+import BaseCard from './BaseCard'
+import useThemedStyles from '../../../hooks/useThemedStyles'
+import type { BaseCardProps } from '../types'
+import Text from '../../Text/Text'
+import Tag from '../../atoms/Tag/index'
+import type { ThemeContextType } from '../../../theme/types'
 
 function ContentImageCard(props: BaseCardProps) {
-  const themedStyle = useThemedStyles(styles);
+  const themedStyle = useThemedStyles(styles)
 
   return (
     <BaseCard
@@ -49,7 +48,7 @@ function ContentImageCard(props: BaseCardProps) {
         )}
       </View>
     </BaseCard>
-  );
+  )
 }
 
 const styles = (theme: ThemeContextType) =>
@@ -118,6 +117,6 @@ const styles = (theme: ThemeContextType) =>
       fontFamily: theme.typography.fontFamily.REGULAR,
       color: theme.colors.content_tertiary,
     },
-  });
+  })
 
-export default ContentImageCard;
+export default ContentImageCard

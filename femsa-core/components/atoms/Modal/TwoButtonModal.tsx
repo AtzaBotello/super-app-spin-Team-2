@@ -1,30 +1,30 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import type { ThemeContextType } from 'src/theme/types';
-import useThemedStyles from '../../../hooks/useThemedStyles';
-import type { BaseButtonProps } from '../../Button/types';
-import type { BaseModalProps } from '../../types';
-import Button from '../../Button/Button';
-import BaseModal from './BaseModal';
+import React from 'react'
+import { StyleSheet, View } from 'react-native'
+import type { ThemeContextType } from '../../../theme/types'
+import useThemedStyles from '../../../hooks/useThemedStyles'
+import type { BaseButtonProps } from '../../Button/types'
+import type { BaseModalProps } from '../../types'
+import Button from '../../Button/Button'
+import BaseModal from './BaseModal'
 
 const TwoButtonModal = (props: BaseModalProps) => {
-  const { onCallbackClose, onClose } = props;
+  const { onCallbackClose, onClose } = props
   const enableCloseOnPressFirstButton = props.firstButtonProps
     ?.enableCloseOnPress
     ? props.firstButtonProps.enableCloseOnPress
-    : false;
+    : false
   const enableCloseOnPressSecondButton = props.secondButtonProps
     ?.enableCloseOnPress
     ? props.secondButtonProps.enableCloseOnPress
-    : false;
-  const firstButtonProps = props.firstButtonProps as BaseButtonProps;
-  const secondButtonProps = props.secondButtonProps as BaseButtonProps;
-  const themedStyle = useThemedStyles(styles);
+    : false
+  const firstButtonProps = props.firstButtonProps as BaseButtonProps
+  const secondButtonProps = props.secondButtonProps as BaseButtonProps
+  const themedStyle = useThemedStyles(styles)
 
   const onCloseHandler = () => {
-    onClose && onClose();
-    onCallbackClose();
-  };
+    onClose && onClose()
+    onCallbackClose()
+  }
 
   return (
     <BaseModal
@@ -40,8 +40,8 @@ const TwoButtonModal = (props: BaseModalProps) => {
               {...firstButtonProps}
               variant="primary"
               onPress={() => {
-                firstButtonProps.onPress();
-                onCloseHandler();
+                firstButtonProps.onPress()
+                onCloseHandler()
               }}
             />
           ) : (
@@ -54,8 +54,8 @@ const TwoButtonModal = (props: BaseModalProps) => {
               {...secondButtonProps}
               variant="secondary"
               onPress={() => {
-                secondButtonProps.onPress();
-                onCloseHandler();
+                secondButtonProps.onPress()
+                onCloseHandler()
               }}
             />
           ) : (
@@ -64,8 +64,8 @@ const TwoButtonModal = (props: BaseModalProps) => {
         </View>
       </View>
     </BaseModal>
-  );
-};
+  )
+}
 
 const styles = (theme: ThemeContextType) =>
   StyleSheet.create({
@@ -90,6 +90,6 @@ const styles = (theme: ThemeContextType) =>
     firstButtonContainer: {
       marginBottom: 12,
     },
-  });
+  })
 
-export default TwoButtonModal;
+export default TwoButtonModal

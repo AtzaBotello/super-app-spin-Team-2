@@ -1,15 +1,15 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import BaseCard from './BaseCard';
-import useThemedStyles from '../../../hooks/useThemedStyles';
-import type { BaseCardProps } from '../types';
-import Text from '../../Text/Text';
-import type { ThemeContextType } from '../../../../src/theme/types';
-import Tag from '../../atoms/Tag/index';
-import Icon from '../../atoms/Icon/Icon';
+import React from 'react'
+import { View, StyleSheet } from 'react-native'
+import BaseCard from './BaseCard'
+import useThemedStyles from '../../../hooks/useThemedStyles'
+import type { BaseCardProps } from '../types'
+import Text from '../../Text/Text'
+import type { ThemeContextType } from '../../../theme/types'
+import Tag from '../../atoms/Tag/index'
+import Icon from '../../atoms/Icon/Icon'
 
 function ContentInLineCard(props: BaseCardProps) {
-  const themedStyle = useThemedStyles(styles);
+  const themedStyle = useThemedStyles(styles)
   return (
     <BaseCard {...props} style={themedStyle.card}>
       <View style={themedStyle.container}>
@@ -75,7 +75,7 @@ function ContentInLineCard(props: BaseCardProps) {
         </View>
       </View>
     </BaseCard>
-  );
+  )
 }
 
 const styles = (theme: ThemeContextType) =>
@@ -132,6 +132,6 @@ const styles = (theme: ThemeContextType) =>
     },
     icon: { fontSize: 20, color: theme.colors.content_tertiary },
     tag: { left: 10 },
-  });
+  })
 
-export default ContentInLineCard;
+export default ContentInLineCard

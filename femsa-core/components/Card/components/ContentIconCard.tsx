@@ -1,28 +1,30 @@
-import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import BaseCard from './BaseCard';
-import useThemedStyles from '../../../hooks/useThemedStyles';
-import type { BaseCardProps } from '../types';
-import Text from '../../Text/Text';
+import React from 'react'
+import { View, StyleSheet } from 'react-native'
+import BaseCard from './BaseCard'
+import useThemedStyles from '../../../hooks/useThemedStyles'
+import type { BaseCardProps } from '../types'
+import Text from '../../Text/Text'
 
 function ContentIconCard(props: BaseCardProps) {
-  const themedStyle = useThemedStyles(styles);
+  const themedStyle = useThemedStyles(styles)
 
   return (
     <BaseCard {...props} style={themedStyle.card}>
       <View style={themedStyle.contentView}>
-        {props.image && props.image}
-        <Text variant="small-body-bold" numberOfLines={1}>
-          {props.title}
-        </Text>
-        {props.subtitle && (
-          <Text variant="overline" numberOfLines={1}>
-            {props.subtitle}
+        <>
+          {props.image && props.image}
+          <Text variant="small-body-bold" numberOfLines={1}>
+            {props.title}
           </Text>
-        )}
+          {props.subtitle && (
+            <Text variant="overline" numberOfLines={1}>
+              {props.subtitle}
+            </Text>
+          )}
+        </>
       </View>
     </BaseCard>
-  );
+  )
 }
 
 const styles = () =>
@@ -48,6 +50,6 @@ const styles = () =>
       height: 40,
       width: 40,
     },
-  });
+  })
 
-export default ContentIconCard;
+export default ContentIconCard

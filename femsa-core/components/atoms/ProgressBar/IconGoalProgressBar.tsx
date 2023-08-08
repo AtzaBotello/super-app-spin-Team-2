@@ -1,21 +1,22 @@
-import React from 'react';
-import { Image, View, StyleSheet } from 'react-native';
-import BaseProgressBar from './BaseProgressBar';
+import React from 'react'
+import { Image, View, StyleSheet } from 'react-native'
+import BaseProgressBar from './BaseProgressBar'
 import type {
   BaseProgressBarProps,
   ConditionalBaseProgressBarProps,
-} from '../types';
-import type { ThemeContextType } from 'src/theme/types';
-import useThemedStyles from '../../../hooks/useThemedStyles';
+} from '../types'
+import type { ThemeContextType } from '../../../theme/types'
+import useThemedStyles from '../../../hooks/useThemedStyles'
 
-const iconDefault = require('../../../assets/regalo.png');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const iconDefault = require('../../../assets/regalo.png')
 
 function IconGoalProgressBar({
   goalIcon = iconDefault,
   ...props
 }: BaseProgressBarProps & ConditionalBaseProgressBarProps) {
-  const themedStyle = useThemedStyles(styles);
-  const { percent } = props;
+  const themedStyle = useThemedStyles(styles)
+  const { percent } = props
 
   const renderIcon = () => (
     <View
@@ -28,12 +29,12 @@ function IconGoalProgressBar({
     >
       <Image source={goalIcon} style={themedStyle.icon} />
     </View>
-  );
+  )
   return (
     <View testID="IconGoalProgressBar">
       <BaseProgressBar {...props} iconGoalComponent={renderIcon()} />
     </View>
-  );
+  )
 }
 
 const styles = (theme: ThemeContextType) => ({
@@ -63,5 +64,5 @@ const styles = (theme: ThemeContextType) => ({
       resizeMode: 'contain',
     },
   }),
-});
-export default IconGoalProgressBar;
+})
+export default IconGoalProgressBar

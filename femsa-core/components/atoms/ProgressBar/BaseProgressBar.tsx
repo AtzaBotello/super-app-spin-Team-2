@@ -1,16 +1,16 @@
-import React, { useEffect, useRef, useCallback, useState } from 'react';
-import { Animated, StyleSheet, View } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
-import useThemedStyles from '../../../hooks/useThemedStyles';
+import React, { useEffect, useRef, useCallback, useState } from 'react'
+import { Animated, StyleSheet, View } from 'react-native'
+import LinearGradient from 'react-native-linear-gradient'
+import useThemedStyles from '../../../hooks/useThemedStyles'
 import type {
   BaseProgressBarProps,
   ConditionalBaseProgressBarProps,
-} from '../types';
-import type { ThemeContextType } from '../../../theme/types';
-import Text from '../../Text/Text';
+} from '../types'
+import type { ThemeContextType } from '../../../theme/types'
+import Text from '../../Text/Text'
 
 interface AnimatedBarProps {
-  progressBarWidth: number;
+  progressBarWidth: number
 }
 
 function BaseProgressBar({
@@ -21,8 +21,8 @@ function BaseProgressBar({
   iconGoalComponent,
   pagination,
 }: BaseProgressBarProps & ConditionalBaseProgressBarProps) {
-  const themedStyle = useThemedStyles(styles);
-  const [progressBarWidth, setProgressBarWidth] = useState(0);
+  const themedStyle = useThemedStyles(styles)
+  const [progressBarWidth, setProgressBarWidth] = useState(0)
 
   const renderPagination = () => (
     <Text
@@ -35,7 +35,7 @@ function BaseProgressBar({
       </Text>
       /{percent.totalStep}
     </Text>
-  );
+  )
 
   const animatedBarProps = {
     firstColor,
@@ -43,7 +43,7 @@ function BaseProgressBar({
     testID,
     percent,
     progressBarWidth,
-  };
+  }
 
   return (
     <View>
@@ -53,8 +53,8 @@ function BaseProgressBar({
           style={themedStyle.progressBar}
           testID="grayBar"
           onLayout={(event) => {
-            const { x, width } = event.nativeEvent.layout;
-            setProgressBarWidth(x + width);
+            const { x, width } = event.nativeEvent.layout
+            setProgressBarWidth(x + width)
           }}
         />
       ) : (
@@ -64,7 +64,7 @@ function BaseProgressBar({
       )}
       {pagination && renderPagination()}
     </View>
-  );
+  )
 }
 
 const AnimatedBar = ({
@@ -74,44 +74,45 @@ const AnimatedBar = ({
   percent,
   progressBarWidth,
 }: AnimatedBarProps & BaseProgressBarProps) => {
-  const themedStyle = useThemedStyles(styles);
-  const initialTranslateX = -progressBarWidth;
-  const barXTransform = useRef(new Animated.Value(initialTranslateX)).current;
+  const themedStyle = useThemedStyles(styles)
+  const initialTranslateX = -progressBarWidth
+  const barXTransform = useRef(new Animated.Value(initialTranslateX)).current
 
-  const progressPercentage = percent.currentStep / percent.totalStep;
+  const progressPercentage = percent.currentStep / percent.totalStep
 
   const transformXPosition = useCallback(
-    (thePercentage) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    (thePercentage: any) => {
       const newXTranslation = -(
         progressBarWidth -
         progressBarWidth * thePercentage
-      );
+      )
 
       Animated.timing(barXTransform, {
         toValue: newXTranslation,
         duration: 600,
         useNativeDriver: true,
-      }).start();
+      }).start()
     },
-    [barXTransform, progressBarWidth],
-  );
+    [barXTransform, progressBarWidth]
+  )
 
   useEffect(() => {
-    transformXPosition(progressPercentage);
-  }, [progressPercentage, transformXPosition]);
+    transformXPosition(progressPercentage)
+  }, [progressPercentage, transformXPosition])
 
   const progressBarColor =
     firstColor !== undefined
       ? firstColor
-      : themedStyle.colors.brand_gradient_loyalty[0];
+      : themedStyle.colors.brand_gradient_loyalty[0]
 
   const secondProgressBarColorDefault =
     firstColor !== undefined
       ? progressBarColor
-      : themedStyle.colors.brand_gradient_loyalty[1];
+      : themedStyle.colors.brand_gradient_loyalty[1]
 
   const secondProgressBarColor =
-    secondColor !== undefined ? secondColor : secondProgressBarColorDefault;
+    secondColor !== undefined ? secondColor : secondProgressBarColorDefault
 
   return (
     <Animated.View
@@ -132,8 +133,8 @@ const AnimatedBar = ({
         style={themedStyle.gradientContent}
       />
     </Animated.View>
-  );
-};
+  )
+}
 
 const styles = (theme: ThemeContextType) => ({
   ...theme,
@@ -161,6 +162,6 @@ const styles = (theme: ThemeContextType) => ({
       color: theme.colors.NEUTRAL_DEFAULT_DARK_100,
     },
   }),
-});
+})
 
-export default BaseProgressBar;
+export default BaseProgressBar

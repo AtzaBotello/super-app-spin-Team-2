@@ -1,40 +1,40 @@
-import React from 'react';
-import { View, StyleSheet, Dimensions } from 'react-native';
-import BaseCard from './BaseCard';
-import useThemedStyles from '../../../hooks/useThemedStyles';
-import type { BaseCardProps, ContentStackedProps } from '../types';
-import Text from '../../Text/Text';
-import type { ThemeContextType } from '../../../../src/theme/types';
+import React from 'react'
+import { View, StyleSheet, Dimensions } from 'react-native'
+import BaseCard from './BaseCard'
+import useThemedStyles from '../../../hooks/useThemedStyles'
+import type { BaseCardProps, ContentStackedProps } from '../types'
+import Text from '../../Text/Text'
+import type { ThemeContextType } from '../../../theme/types'
 
 interface TextContentProps {
-  title?: string;
-  titleSize?: 'small' | 'default' | 'extra-small';
+  title?: string
+  titleSize?: 'small' | 'default' | 'extra-small'
 }
 
 interface ImageContentProps {
-  image?: JSX.Element;
+  image?: JSX.Element
 }
 
-const { width } = Dimensions.get('window');
+const { width } = Dimensions.get('window')
 
 const ImageContent = ({ image }: ImageContentProps) => {
-  const themedStyle = useThemedStyles(styles);
-  return <View style={themedStyle.imageContent}>{image}</View>;
-};
+  const themedStyle = useThemedStyles(styles)
+  return <View style={themedStyle.imageContent}>{image}</View>
+}
 
 const TextContent = ({ title, titleSize = 'default' }: TextContentProps) => {
-  const themedStyle = useThemedStyles(styles);
-  const cardTextNumberOfLines = 2;
+  const themedStyle = useThemedStyles(styles)
+  const cardTextNumberOfLines = 2
   const getTextVariant = (size: 'small' | 'default' | 'extra-small') => {
     switch (size) {
-      case 'small':
-        return 'small-body-bold';
-      case 'extra-small':
-        return 'extra-small-body-bold';
-      default:
-        return 'default-body-bold';
+    case 'small':
+      return 'small-body-bold'
+    case 'extra-small':
+      return 'extra-small-body-bold'
+    default:
+      return 'default-body-bold'
     }
-  };
+  }
 
   return (
     <Text
@@ -44,21 +44,21 @@ const TextContent = ({ title, titleSize = 'default' }: TextContentProps) => {
     >
       {title}
     </Text>
-  );
-};
+  )
+}
 
 function ContentStackedCard(props: ContentStackedProps & BaseCardProps) {
-  const themedStyle = useThemedStyles(styles);
+  const themedStyle = useThemedStyles(styles)
 
   const isValidTitlesSize =
     props.titleSize === 'small' ||
     props.titleSize === 'default' ||
-    props.titleSize === 'extra-small';
+    props.titleSize === 'extra-small'
 
   if (!isValidTitlesSize) {
     throw new Error(
-      "Invalid value of titlesSize. Please only use 'small',  'default', 'extra-small' ",
-    );
+      "Invalid value of titlesSize. Please only use 'small',  'default', 'extra-small' "
+    )
   }
 
   return (
@@ -76,7 +76,7 @@ function ContentStackedCard(props: ContentStackedProps & BaseCardProps) {
         />
       </View>
     </BaseCard>
-  );
+  )
 }
 
 const styles = (theme: ThemeContextType) =>
@@ -109,6 +109,6 @@ const styles = (theme: ThemeContextType) =>
       marginTop: 16,
       textAlign: 'center',
     },
-  });
+  })
 
-export default ContentStackedCard;
+export default ContentStackedCard

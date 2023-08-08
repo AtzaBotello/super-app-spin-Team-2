@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import {
   Modal,
   ScrollView,
@@ -7,12 +7,12 @@ import {
   KeyboardAvoidingView,
   View,
   Platform,
-} from 'react-native';
-import Text from '../../Text/Text';
-import useThemedStyles from '../../../hooks/useThemedStyles';
-import type { BaseModalProps } from '../../types';
-import Icon from '../Icon/Icon';
-import type { ThemeContextType } from 'src/theme/types';
+} from 'react-native'
+import Text from '../../Text/Text'
+import useThemedStyles from '../../../hooks/useThemedStyles'
+import type { BaseModalProps } from '../../types'
+import Icon from '../Icon/Icon'
+import type { ThemeContextType } from '../../../theme/types'
 const BaseModal = (props: BaseModalProps) => {
   const {
     title,
@@ -27,19 +27,19 @@ const BaseModal = (props: BaseModalProps) => {
     defaultStyle,
     showCloseBtn,
     defaultDescriptionStyle,
-  } = props;
-  const [visibleFlag, setVisibleFlag] = useState(visible);
-  const themedStyle = useThemedStyles(styles);
+  } = props
+  const [visibleFlag, setVisibleFlag] = useState(visible)
+  const themedStyle = useThemedStyles(styles)
 
   useEffect(() => {
-    setVisibleFlag(visible);
-  }, [visible]);
+    setVisibleFlag(visible)
+  }, [visible])
 
   const onCloseHandler = () => {
-    setVisibleFlag(false);
-    onClose && onClose();
-    onCallbackClose();
-  };
+    setVisibleFlag(false)
+    onClose && onClose()
+    onCallbackClose()
+  }
 
   return (
     <View>
@@ -91,7 +91,6 @@ const BaseModal = (props: BaseModalProps) => {
                     <Icon
                       name="icon-close"
                       testID={`${testID}-close-button`}
-                      // eslint-disable-next-line react-native/no-inline-styles
                       iconTypographyStyle={{ fontSize: 20 }}
                     />
                   </TouchableOpacity>
@@ -111,8 +110,8 @@ const BaseModal = (props: BaseModalProps) => {
         </KeyboardAvoidingView>
       </Modal>
     </View>
-  );
-};
+  )
+}
 
 const styles = (theme: ThemeContextType) =>
   StyleSheet.create({
@@ -173,6 +172,6 @@ const styles = (theme: ThemeContextType) =>
       marginTop: 12,
       minHeight: 36,
     },
-  });
+  })
 
-export default BaseModal;
+export default BaseModal

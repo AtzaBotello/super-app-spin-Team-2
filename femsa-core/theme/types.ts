@@ -3,7 +3,7 @@ import type {
   SizesType,
   LineHeightType,
   FontFamilyType,
-} from '../styles/types';
+} from '../styles/types'
 
 export enum ThemeVariant {
   SpinPlus = 'SpinPlus',
@@ -11,22 +11,22 @@ export enum ThemeVariant {
 }
 
 interface ThemeContextType {
-  variant: ThemeVariant;
-  colors: ColorType;
-  typography: Typography;
-  isLightTheme: boolean;
-  toggleTheme: () => void;
+  variant: ThemeVariant
+  colors: ColorType
+  typography: Typography
+  isLightTheme: boolean
+  toggleTheme: () => void
 }
 
 interface ThemeType {
-  colors: ColorType;
-  typography: Typography;
+  colors: ColorType
+  typography: Typography
 }
 
 interface Typography {
-  size: SizesType;
-  lineHeight: LineHeightType;
-  fontFamily: FontFamilyType;
+  size: SizesType
+  lineHeight: LineHeightType
+  fontFamily: FontFamilyType
 }
 
-export { ThemeContextType, Typography, ThemeType };
+export { type ThemeContextType, type Typography, type ThemeType }

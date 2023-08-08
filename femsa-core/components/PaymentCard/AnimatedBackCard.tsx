@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react'
 import {
   View,
   StyleSheet,
@@ -9,28 +9,29 @@ import {
   TouchableOpacity,
   Image,
   Easing,
-} from 'react-native';
-import type { HeaderCardProps, Gradient } from './types';
-import HeaderCard from './components/HeaderCard';
-import Card from '../Card/Card';
-import LinearGradient from 'react-native-linear-gradient';
-import Barcode from '../Barcode/Barcode';
-import type { BarcodeFormat } from '../types';
-import Text from '../Text/Text';
-import useThemedStyles from '../../hooks/useThemedStyles';
-import type { ThemeContextType } from 'src/theme/types';
+} from 'react-native'
+import type { HeaderCardProps, Gradient } from './types'
+import HeaderCard from './components/HeaderCard'
+import Card from '../Card/Card'
+import LinearGradient from 'react-native-linear-gradient'
+import Barcode from '../Barcode/Barcode'
+import type { BarcodeFormat } from '../types'
+import Text from '../Text/Text'
+import useThemedStyles from '../../hooks/useThemedStyles'
+import type { ThemeContextType } from '../../theme/types'
 export interface AnimatedBackCardProps {
-  testID?: string;
-  header?: HeaderCardProps;
-  textStyle?: TextStyle;
-  disabled: boolean;
-  gradient: Gradient;
-  barcodeValue: string;
-  barcodeFormat: BarcodeFormat;
-  style?: ViewStyle;
-  brandBlur?: boolean;
+  testID?: string
+  header?: HeaderCardProps
+  textStyle?: TextStyle
+  disabled: boolean
+  gradient: Gradient
+  barcodeValue: string
+  barcodeFormat: BarcodeFormat
+  style?: ViewStyle
+  brandBlur?: boolean
 }
-const chevronDown = require('../../assets/chevronDown.png');
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const chevronDown = require('../../assets/chevronDown.png')
 
 function AnimatedBackCard({
   header,
@@ -39,19 +40,19 @@ function AnimatedBackCard({
   barcodeFormat,
   barcodeValue,
 }: AnimatedBackCardProps) {
-  const themedStyle = useThemedStyles(styles);
-  const [open, setOpen] = useState(false);
-  const animatedController = useRef(new Animated.Value(0)).current;
+  const themedStyle = useThemedStyles(styles)
+  const [open, setOpen] = useState(false)
+  const animatedController = useRef(new Animated.Value(0)).current
 
   const bodyHeight = animatedController.interpolate({
     inputRange: [0, 1],
     outputRange: [76, 182],
-  });
+  })
 
   const arrowAngle = animatedController.interpolate({
     inputRange: [0, 1],
     outputRange: ['0rad', `${Math.PI}rad`],
-  });
+  })
 
   const toggleItem = () => {
     if (open) {
@@ -60,17 +61,17 @@ function AnimatedBackCard({
         toValue: 0,
         useNativeDriver: false,
         easing: Easing.bezier(0.5, 0.0, 0.2, 1),
-      }).start();
+      }).start()
     } else {
       Animated.timing(animatedController, {
         duration: 600,
         toValue: 1,
         useNativeDriver: false,
         easing: Easing.bezier(0.5, 0.0, 0.2, 1),
-      }).start();
+      }).start()
     }
-    setOpen((prev) => !prev);
-  };
+    setOpen((prev) => !prev)
+  }
 
   return (
     <>
@@ -94,15 +95,15 @@ function AnimatedBackCard({
               colors={
                 disabled
                   ? [
-                      gradient.disabled.left,
-                      gradient.disabled.center,
-                      gradient.disabled.right,
-                    ]
+                    gradient.disabled.left,
+                    gradient.disabled.center,
+                    gradient.disabled.right,
+                  ]
                   : [
-                      gradient.enabled.left,
-                      gradient.enabled.center,
-                      gradient.enabled.right,
-                    ]
+                    gradient.enabled.left,
+                    gradient.enabled.center,
+                    gradient.enabled.right,
+                  ]
               }
               start={{ x: 0, y: 1 }}
               end={{ x: 0.9, y: 0.4 }}
@@ -139,10 +140,10 @@ function AnimatedBackCard({
               colors={
                 disabled
                   ? [
-                      gradient.disabled.left,
-                      gradient.disabled.center,
-                      gradient.disabled.right,
-                    ]
+                    gradient.disabled.left,
+                    gradient.disabled.center,
+                    gradient.disabled.right,
+                  ]
                   : [gradient.enabled.left, gradient.enabled.center]
               }
               start={{ x: 0, y: 1 }}
@@ -159,10 +160,10 @@ function AnimatedBackCard({
         </TouchableOpacity>
       </Card>
     </>
-  );
+  )
 }
 
-export default AnimatedBackCard;
+export default AnimatedBackCard
 
 const styles = (theme: ThemeContextType) =>
   StyleSheet.create({
@@ -241,4 +242,4 @@ const styles = (theme: ThemeContextType) =>
       fontWeight: '600',
       fontSize: 12,
     },
-  });
+  })

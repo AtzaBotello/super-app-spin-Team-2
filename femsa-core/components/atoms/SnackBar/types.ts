@@ -1,5 +1,5 @@
-import { LightTheme } from '../../../styles/spinplus';
-import type { IconName } from '../Icon/Icon';
+import { LightTheme } from '../../../styles/spinplus'
+import type { IconName } from '../Icon/Icon'
 
 const DEFAULT_SNACKBAR_STYLES = {
   iconColor: LightTheme.content_primary,
@@ -7,7 +7,7 @@ const DEFAULT_SNACKBAR_STYLES = {
   textColor: LightTheme.content_primary,
   closeColor: LightTheme.content_tertiary,
   actionLabelColor: LightTheme.content_secondary,
-};
+}
 
 const INFO_SNACKBAR_STYLES = {
   backgroundColor: LightTheme.ui_info,
@@ -17,7 +17,7 @@ const INFO_SNACKBAR_STYLES = {
   iconColor: LightTheme.surface_primary,
   actionLabelColor: LightTheme.surface_primary,
   iconName: 'icon-alert-info',
-};
+}
 
 const SUCCESS_SNACKBAR_STYLES = {
   backgroundColor: LightTheme.ui_success,
@@ -27,7 +27,7 @@ const SUCCESS_SNACKBAR_STYLES = {
   iconColor: LightTheme.surface_primary,
   actionLabelColor: LightTheme.surface_primary,
   iconName: 'icon-check-circle',
-};
+}
 
 const WARNING_SNACKBAR_STYLES = {
   backgroundColor: LightTheme.ui_warning,
@@ -37,7 +37,7 @@ const WARNING_SNACKBAR_STYLES = {
   iconColor: LightTheme.surface_primary,
   actionLabelColor: LightTheme.surface_primary,
   iconName: 'icon-alert-warn',
-};
+}
 
 const ERROR_SNACKBAR_STYLES = {
   backgroundColor: LightTheme.ui_error,
@@ -47,59 +47,59 @@ const ERROR_SNACKBAR_STYLES = {
   iconColor: LightTheme.surface_primary,
   actionLabelColor: LightTheme.surface_primary,
   iconName: 'icon-alert-error',
-};
+}
 
 type SnackBarProps = {
-  text?: string;
+  text?: string
 
   /**
    * By default is false
    * Whether 'true' is passed, then request an iconName.
    */
-  withIcon?: boolean;
+  withIcon?: boolean
 
-  iconName?: IconName;
+  iconName?: IconName
 
-  iconColor?: string;
+  iconColor?: string
 
-  backgroundColor?: string;
+  backgroundColor?: string
 
-  closeColor?: string;
+  closeColor?: string
 
-  textColor?: string;
+  textColor?: string
 
   /**
    * Duration in milliseconds
    */
-  duration?: number;
+  duration?: number
 
   /**
    * When onClose function is passed, then the close icon appears
    * @returns void
    */
-  onClose?: () => void;
+  onClose?: () => void
 
   /**
    * Snackbar can display a single text button that lets users take action on a process performed by the app.
    * Snackbar shouldn’t be the only way to access a core use case, to make an app usable.
    */
-  action?: ActionSnackBar;
+  action?: ActionSnackBar
 
-  testID?: string;
+  testID?: string
 
-  actionLabelColor?: string;
+  actionLabelColor?: string
 
   /**
    * The position of the snackbar in the page, default is 'top'
    */
-  position?: 'top' | 'bottom';
-};
+  position?: 'top' | 'bottom'
+}
 
 type ActionSnackBar = {
-  label: string;
-  color?: string;
-  onAction?: () => void;
-};
+  label: string
+  color?: string
+  onAction?: () => void
+}
 
 enum SnackBarVariant {
   'default',
@@ -110,12 +110,12 @@ enum SnackBarVariant {
 }
 
 export {
-  ActionSnackBar,
-  SnackBarProps,
+  type ActionSnackBar,
+  type SnackBarProps,
   SnackBarVariant,
   DEFAULT_SNACKBAR_STYLES,
   INFO_SNACKBAR_STYLES,
   SUCCESS_SNACKBAR_STYLES,
   WARNING_SNACKBAR_STYLES,
   ERROR_SNACKBAR_STYLES,
-};
+}
