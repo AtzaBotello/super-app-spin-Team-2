@@ -4,7 +4,7 @@ export type Movement = {
   expiryDate?: Date
   giftCode?: string
   id: number
-  operation: string
+  operation: 'earned' | 'used'
   points: number
   transactionNo: string
 }
