@@ -73,3 +73,5 @@ export const mapMovementsByDate = (
 
   return movementsByDate
 }
+
+export const mountByPoints = (points: number) => points / 10
