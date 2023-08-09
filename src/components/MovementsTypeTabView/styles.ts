@@ -1,10 +1,10 @@
 import { Colors } from '@theme/colors'
-import { StyleSheet } from 'react-native'
+import { Platform, StyleSheet } from 'react-native'
 
 export const movementsTypeTabBarStyles = StyleSheet.create({
   container: {
     backgroundColor: 'white',
-    marginHorizontal: 20,
+    marginHorizontal: Platform.OS === 'android' ? 0 : 20,
   },
   tabBarIndicator: {
     backgroundColor: Colors.primary,

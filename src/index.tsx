@@ -7,7 +7,7 @@ import { MovementsScreen } from '@presentation/movements'
 const App = () => {
   return (
     <ThemeProvider>
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
         <MovementsScreen />
       </SafeAreaView>
     </ThemeProvider>
