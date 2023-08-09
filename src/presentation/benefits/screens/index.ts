@@ -1,1 +1,1 @@
-export { default as BenefitsScreen } from './MainScreen'
+export * from './MainScreen'
