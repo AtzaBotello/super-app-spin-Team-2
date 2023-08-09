@@ -1,5 +1,5 @@
 import { LightTheme } from '../spinplus';
-import type { SizesType, LineHeightType, FontFamilyType } from '../types';
+import type {SizesType, LineHeightType, FontFamilyType} from '../types';
 
 /**
  * There are several deprecated properties on this method refer to the information below
@@ -331,4 +331,4 @@ const fontConfig = {
   },
 };
 
-export { fontFamily, lineHeight, size, fontConfig };
+export {fontFamily, lineHeight, size, fontConfig};
