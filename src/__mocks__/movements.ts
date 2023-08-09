@@ -19,7 +19,7 @@ export const MOVEMENTS: Movement[] = [
     id: 9,
   },
   {
-    entity: 'Oxxo Gas',
+    entity: 'Sumaste Puntos',
     date: new Date('Sun Aug 06 2023'),
     points: 100,
     operation: 'used',
@@ -27,7 +27,7 @@ export const MOVEMENTS: Movement[] = [
     id: 1,
   },
   {
-    entity: 'Volaris',
+    entity: 'Recuperación de puntos',
     date: new Date('Sun Aug 01 2023'),
     points: 1000,
     operation: 'earned',
@@ -36,6 +36,14 @@ export const MOVEMENTS: Movement[] = [
   },
   {
     entity: 'Volaris',
+    date: new Date('Sun Jan 01 2023'),
+    points: 1000,
+    operation: 'earned',
+    transactionNo: '5dced89c-2b6e-4a1c-a715-c19b0a51',
+    id: 10,
+  },
+  {
+    entity: 'Doña Tota',
     date: new Date('Sun Aug 01 2023'),
     points: 1000,
     operation: 'earned',
@@ -61,7 +69,7 @@ export const MOVEMENTS: Movement[] = [
     id: 5,
   },
   {
-    entity: 'Oxxo Gas',
+    entity: 'Oxxo',
     date: new Date(),
     points: 100,
     operation: 'earned',

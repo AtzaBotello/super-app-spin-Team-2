@@ -4,6 +4,7 @@ import { movementsListItemStyles } from '@src/theme/Movements.styles'
 import { Text } from '@femsa-core'
 import { View } from 'react-native'
 import React from 'react'
+import EntityIcon from '../EntityIcon'
 
 type Props = {
   movement: Movement
@@ -12,15 +13,12 @@ type Props = {
 const MovementItem = ({ movement }: Props) => {
   return (
     <View testID="movement-list-item" style={movementsListItemStyles.container}>
-      {/* TODO: Cambiar po la imagen del proveedor */}
-      <View
-        style={{
-          height: 60,
-          width: 60,
-          backgroundColor: 'red',
-          borderRadius: 100,
-        }}
-      />
+      <View>
+        <EntityIcon
+          entity={movement.entity}
+          iconProps={{ width: 45, height: 45 }}
+        />
+      </View>
       <View style={movementsListItemStyles.infoContainer}>
         <Text style={[movementsListItemStyles.text, { fontSize: 16 }]}>
           {movement.entity}
