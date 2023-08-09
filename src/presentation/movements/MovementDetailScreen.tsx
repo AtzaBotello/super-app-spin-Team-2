@@ -1,8 +1,17 @@
-import { Divider, InfoSection, NavBar, ScreenContainer } from '@src/components'
+import {
+  Divider,
+  EntityCard,
+  InfoSection,
+  NavBar,
+  ScreenContainer,
+} from '@src/components'
 import { formatDate } from '@src/utils/dates'
 import { mountByPoints } from '@src/utils/movements'
 import { MovementDetailScreenProps } from '@src/navigation/AppNavigation'
 import React from 'react'
+import { Text } from '@femsa-core'
+import { View } from 'react-native'
+import { movementDetailStyles } from '@src/theme/movements.styles'
 
 const MovementDetailScreen = ({ route }: MovementDetailScreenProps) => {
   const {
@@ -11,30 +20,55 @@ const MovementDetailScreen = ({ route }: MovementDetailScreenProps) => {
   return (
     <ScreenContainer>
       <NavBar title="Detalle de movimiento" withGoBack />
-
-      <InfoSection
-        label="Monto total:"
-        value={mountByPoints(movement.points)}
-        containerStyle={{ paddingVertical: 8 }}
-      />
-      <InfoSection
-        label="Fecha:"
-        value={formatDate(movement.date, 'D/M/YYYY')}
-        containerStyle={{ paddingVertical: 8 }}
-      />
-      <InfoSection
-        label="Usalos desde el:"
-        value={formatDate(movement.date, 'D/M/YYYY')}
-        containerStyle={{ paddingVertical: 8 }}
-      />
+      <View
+        style={[
+          movementDetailStyles.section,
+          movementDetailStyles.cardContainer,
+        ]}
+      >
+        <EntityCard entity={movement.entity}>
+          <View style={movementDetailStyles.movementMessageContainer}>
+            <Text style={movementDetailStyles.movementMessageText}>
+              {movement.operation === 'earned'
+                ? 'En esta compra ganaste:'
+                : 'Usaste el total de puntos:'}
+            </Text>
+          </View>
+          <Text style={movementDetailStyles.pointsText}>
+            <Text style={movementDetailStyles.operationIndicator}>
+              {movement.operation === 'earned' ? '+' : '-'}
+            </Text>
+            {movement.points}
+          </Text>
+        </EntityCard>
+      </View>
+      <View style={movementDetailStyles.section}>
+        <InfoSection
+          label="Monto total:"
+          value={mountByPoints(movement.points)}
+          containerStyle={movementDetailStyles.sectionInfo}
+        />
+        <InfoSection
+          label="Fecha:"
+          value={formatDate(movement.date, 'D/M/YYYY')}
+          containerStyle={movementDetailStyles.sectionInfo}
+        />
+        <InfoSection
+          label="Usalos desde el:"
+          value={formatDate(movement.date, 'D/M/YYYY')}
+          containerStyle={movementDetailStyles.sectionInfo}
+        />
+      </View>
 
       <Divider />
-      <InfoSection
-        label="Número de transacción"
-        value={movement.transactionNo}
-        direction="column"
-        containerStyle={{ paddingVertical: 10 }}
-      />
+      <View style={movementDetailStyles.section}>
+        <InfoSection
+          label="Número de transacción"
+          value={movement.transactionNo}
+          direction="column"
+          containerStyle={movementDetailStyles.sectionInfo}
+        />
+      </View>
     </ScreenContainer>
   )
 }

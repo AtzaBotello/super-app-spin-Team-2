@@ -1,6 +1,6 @@
 import { formatDate } from '@src/utils/dates'
 import { Movement } from '@src/types'
-import { movementsListItemStyles } from '@src/theme/Movements.styles'
+import { movementsListItemStyles } from '@src/theme/movements.styles'
 import { Text } from '@femsa-core'
 import { TouchableOpacity, View } from 'react-native'
 import { useAppNavigation } from '@src/hooks/navigation'

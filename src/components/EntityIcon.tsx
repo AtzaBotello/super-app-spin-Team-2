@@ -11,7 +11,7 @@ import { SvgProps } from 'react-native-svg'
 
 type Props = {
   entity: string
-  iconProps: SvgProps
+  iconProps?: SvgProps
 }
 
 const EntityIcon = ({ entity, iconProps }: Props) => {

@@ -1,11 +1,13 @@
-import { SafeAreaView } from 'react-native'
+import { SafeAreaView, ViewStyle } from 'react-native'
 import React, { PropsWithChildren } from 'react'
 
-const ScreenContainer = ({ children }: PropsWithChildren) => {
+type Props = {
+  containerStyle?: ViewStyle
+} & PropsWithChildren
+const ScreenContainer = ({ children, containerStyle }: Props) => {
+  const styles: ViewStyle = { flex: 1, backgroundColor: 'white' }
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: 'white' }}>
-      {children}
-    </SafeAreaView>
+    <SafeAreaView style={[styles, containerStyle]}>{children}</SafeAreaView>
   )
 }
 

@@ -28,17 +28,38 @@ export const movementsListItemStyles = StyleSheet.create({
 })
 
 export const movementDetailStyles = StyleSheet.create({
-  detailRowContainer: {
-    flexDirection: 'row',
-    alignContent: 'space-between',
+  cardContainer: {
+    marginTop: 50,
   },
-  labelText: {
-    flex: 1,
-    color: Colors.contentSecondary,
-    textAlign: 'left',
+  section: {
+    paddingHorizontal: 20,
   },
-  infoValueText: {
-    flex: 1,
-    textAlign: 'right',
+  sectionInfo: {
+    paddingVertical: 8,
+  },
+  movementMessageContainer: {
+    marginTop: 15,
+    backgroundColor: Colors.surfaceSecondary,
+    width: '80%',
+    padding: 15,
+    borderRadius: 100,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  movementMessageText: {
+    color: Colors.contentPrimary,
+    fontSize: 16,
+    fontFamily: 'Poppins-Regular',
+  },
+  pointsText: {
+    color: Colors.contentPrimary,
+    fontSize: 35,
+    fontFamily: 'Poppins-Bold',
+    top: 20,
+  },
+  operationIndicator: {
+    color: Colors.primary,
+    fontSize: 35,
+    fontFamily: 'Poppins-Bold',
   },
 })

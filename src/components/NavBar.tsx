@@ -18,7 +18,10 @@ const NavBar = ({ title, withGoBack }: Props) => {
   }
 
   return (
-    <FemsaNavBar variant={'default'} iconOnPress={onGoBackPress}>
+    <FemsaNavBar
+      variant={withGoBack ? 'default' : 'primary'}
+      iconOnPress={onGoBackPress}
+    >
       <Text style={{ fontFamily: 'Poppins-SemiBold', fontSize: 18 }}>
         {title}
       </Text>
