@@ -3,11 +3,14 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@src/*": ["src/*"],
       "@femsa-core": ["femsa-core"],
       "@presentation/*": ["src/presentation/*"],
       "@components": ["src/components"],
       "@constants/*": ["src/constants/*"],
-      "@theme/*": ["src/theme/*"]
+      "@theme/*": ["src/theme/*"],
+      "@utils/*": ["src/utils/*"],
+      "@mocks/*": ["src/__mocks__/*"]
     }
   }
 }
