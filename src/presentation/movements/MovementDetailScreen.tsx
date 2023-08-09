@@ -1,8 +1,7 @@
-import { Divider, InfoSection } from '@src/components'
+import { Divider, InfoSection, NavBar, ScreenContainer } from '@src/components'
 import { formatDate } from '@src/utils/dates'
 import { mountByPoints } from '@src/utils/movements'
 import { MovementDetailScreenProps } from '@src/navigation/AppNavigation'
-import { View } from 'react-native'
 import React from 'react'
 
 const MovementDetailScreen = ({ route }: MovementDetailScreenProps) => {
@@ -10,7 +9,9 @@ const MovementDetailScreen = ({ route }: MovementDetailScreenProps) => {
     params: { movement },
   } = route
   return (
-    <View style={{ flex: 1 }}>
+    <ScreenContainer>
+      <NavBar title="Detalle de movimiento" withGoBack />
+
       <InfoSection
         label="Monto total:"
         value={mountByPoints(movement.points)}
@@ -34,7 +35,7 @@ const MovementDetailScreen = ({ route }: MovementDetailScreenProps) => {
         direction="column"
         containerStyle={{ paddingVertical: 10 }}
       />
-    </View>
+    </ScreenContainer>
   )
 }
 
