@@ -1,4 +1,23 @@
 import dayjs, { QUnitType, Dayjs, ManipulateType } from 'dayjs'
+import 'dayjs/locale/es'
+
+const localeObject = {
+  name: 'es', // name String
+  weekdays: [
+    'Domingo',
+    'Lunes',
+    'Martes',
+    'Miércoles',
+    'Jueves',
+    'Viernes',
+    'Sábado',
+  ],
+}
+
+dayjs.locale('es', localeObject)
+
+export const formatDate = (date: Date | Dayjs, format: string) =>
+  dayjs(date).format(format)
 
 export const addValueToDate = (
   date: Date | Dayjs,

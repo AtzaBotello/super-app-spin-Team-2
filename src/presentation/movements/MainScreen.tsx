@@ -26,10 +26,18 @@ const MovementsScreen = () => {
             <MovementsSectionList movements={MOVEMENTS} />
           ),
           [MovementTypes.OBTAINED]: () => (
-            <MovementsSectionList movements={MOVEMENTS} />
+            <MovementsSectionList
+              movements={MOVEMENTS.filter(
+                ({ operation }) => operation === 'earned'
+              )}
+            />
           ),
           [MovementTypes.USED]: () => (
-            <MovementsSectionList movements={MOVEMENTS} />
+            <MovementsSectionList
+              movements={MOVEMENTS.filter(
+                ({ operation }) => operation === 'used'
+              )}
+            />
           ),
         }}
       />

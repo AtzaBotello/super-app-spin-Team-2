@@ -11,10 +11,18 @@ export const MOVEMENT: Movement = {
 
 export const MOVEMENTS: Movement[] = [
   {
+    entity: 'Recuperación de puntos',
+    date: new Date('Sun Aug 06 2023'),
+    points: 100,
+    operation: 'used',
+    transactionNo: '5dced89c-2b6e-4a1c-a715-c19b0a51',
+    id: 9,
+  },
+  {
     entity: 'Oxxo Gas',
     date: new Date('Sun Aug 06 2023'),
     points: 100,
-    operation: 'earned',
+    operation: 'used',
     transactionNo: '5dced89c-2b6e-4a1c-a715-c19b0a51',
     id: 1,
   },
@@ -51,5 +59,13 @@ export const MOVEMENTS: Movement[] = [
     operation: 'earned',
     transactionNo: '5dced89c-2b6e-4a1c-a715-c19b0a51',
     id: 5,
+  },
+  {
+    entity: 'Oxxo Gas',
+    date: new Date(),
+    points: 100,
+    operation: 'earned',
+    transactionNo: '5dced89c-2b6e-4a1c-a715-c19b0a51',
+    id: 51,
   },
 ]
