@@ -1,8 +1,9 @@
-import { MovementsTypeTabView } from '@components'
+import { MovementsSectionList, MovementsTypeTabView } from '@components'
 import { MOVEMENT_TAB_ROUTES, MovementTypes } from '@constants/movements'
 import { NavBar, Text } from '@femsa-core'
 import { View } from 'react-native'
 import React from 'react'
+import { MOVEMENTS } from '@mocks/movements'
 
 const MovementsScreen = () => {
   return (
@@ -21,9 +22,15 @@ const MovementsScreen = () => {
       <MovementsTypeTabView
         tabsItems={MOVEMENT_TAB_ROUTES}
         scenes={{
-          [MovementTypes.ALL]: () => <></>,
-          [MovementTypes.OBTAINED]: () => <></>,
-          [MovementTypes.USED]: () => <></>,
+          [MovementTypes.ALL]: () => (
+            <MovementsSectionList movements={MOVEMENTS} />
+          ),
+          [MovementTypes.OBTAINED]: () => (
+            <MovementsSectionList movements={MOVEMENTS} />
+          ),
+          [MovementTypes.USED]: () => (
+            <MovementsSectionList movements={MOVEMENTS} />
+          ),
         }}
       />
     </View>

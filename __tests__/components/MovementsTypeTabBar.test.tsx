@@ -1,6 +1,6 @@
 import React from 'react'
 import { render, waitFor } from '@testing-library/react-native'
-import { MovementsTypeTabBar } from '@components'
+import { MovementsTypeTabView } from '@components'
 import { Text, ThemeProvider } from '@femsa-core'
 import { MOVEMENT_TAB_ROUTES, MovementTypes } from '@constants/movements'
 import { View } from 'react-native'
@@ -26,7 +26,7 @@ const DEFAULT_SCENES = {
 describe('Movements types tab bar test', () => {
   it('Render correctly component', async () => {
     const { queryAllByTestId } = render(
-      <MovementsTypeTabBar
+      <MovementsTypeTabView
         scenes={DEFAULT_SCENES}
         tabsItems={MOVEMENT_TAB_ROUTES}
       />,
