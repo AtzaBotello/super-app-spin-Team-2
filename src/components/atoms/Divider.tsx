@@ -2,7 +2,7 @@ import { StyleSheet, View } from 'react-native'
 import React from 'react'
 import { Colors } from '@src/theme/colors'
 
-const ListItemDivider = () => {
+const Divider = () => {
   return <View style={styles.divider} />
 }
 
@@ -14,4 +14,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default ListItemDivider
+export default Divider

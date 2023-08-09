@@ -5,7 +5,7 @@ import MovementItem from './MovementItem'
 import ListEmptyIndicator from '../atoms/ListEmptyIndicator'
 import { mapMovementsByDate } from '@src/utils/movements'
 import SectionListTitle from '../atoms/SectionListTitle'
-import ListItemDivider from '../atoms/ListItemDivider'
+import Divider from '../atoms/Divider'
 import { Colors } from '@src/theme/colors'
 import { movementsListStyles } from '@src/theme/Movements.styles'
 
@@ -22,7 +22,7 @@ const MovementsSectionList = ({ movements }: Props) => {
       renderItem={({ item }) => (
         <>
           <MovementItem movement={item} />
-          <ListItemDivider />
+          <Divider />
         </>
       )}
       ListEmptyComponent={
