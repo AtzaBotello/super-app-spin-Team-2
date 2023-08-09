@@ -8,3 +8,8 @@ export type Movement = {
   points: number
   transactionNo: string
 }
+
+export type MovementStackParamList = {
+  MovementsScreen: undefined
+  MovementDetailScreen: { movement: Movement }
+}

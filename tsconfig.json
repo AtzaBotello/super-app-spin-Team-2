@@ -10,7 +10,9 @@
       "@constants/*": ["src/constants/*"],
       "@theme/*": ["src/theme/*"],
       "@utils/*": ["src/utils/*"],
-      "@mocks/*": ["src/__mocks__/*"]
+      "@mocks/*": ["src/__mocks__/*"],
+      "@navigation": ["src/navigation"],
+      "@navigation/*": ["src/hooks/*"]
     }
   }
 }

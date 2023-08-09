@@ -2,17 +2,27 @@ import { formatDate } from '@src/utils/dates'
 import { Movement } from '@src/types'
 import { movementsListItemStyles } from '@src/theme/Movements.styles'
 import { Text } from '@femsa-core'
-import { View } from 'react-native'
-import React from 'react'
+import { TouchableOpacity, View } from 'react-native'
+import { useMovementNavigation } from '@src/hooks/navigation'
 import EntityIcon from '../EntityIcon'
+import React from 'react'
 
 type Props = {
   movement: Movement
 }
 
 const MovementItem = ({ movement }: Props) => {
+  const { navigate } = useMovementNavigation()
+  const onPress = () => {
+    navigate('MovementDetailScreen', { movement })
+  }
+
   return (
-    <View testID="movement-list-item" style={movementsListItemStyles.container}>
+    <TouchableOpacity
+      testID="movement-list-item"
+      onPress={onPress}
+      style={movementsListItemStyles.container}
+    >
       <View>
         <EntityIcon
           entity={movement.entity}
@@ -33,7 +43,7 @@ const MovementItem = ({ movement }: Props) => {
           {movement.points.toLocaleString('en-US')}
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 

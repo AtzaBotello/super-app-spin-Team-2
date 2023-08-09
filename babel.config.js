@@ -27,6 +27,8 @@ module.exports = function (api) {
             '@src': './src',
             '@utils': './src/utils',
             '@mocks': ['./src/__mocks__'],
+            '@navigation': ['./src/navigation'],
+            '@hooks': ['./src/hooks'],
           },
         },
       ],

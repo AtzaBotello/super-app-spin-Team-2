@@ -1,13 +1,13 @@
-import { SectionList } from 'react-native'
-import React, { useMemo } from 'react'
-import { Movement } from '@src/types'
-import MovementItem from './MovementItem'
-import ListEmptyIndicator from '../atoms/ListEmptyIndicator'
-import { mapMovementsByDate } from '@src/utils/movements'
-import SectionListTitle from '../atoms/SectionListTitle'
-import Divider from '../atoms/Divider'
 import { Colors } from '@src/theme/colors'
+import { mapMovementsByDate } from '@src/utils/movements'
+import { Movement } from '@src/types'
 import { movementsListStyles } from '@src/theme/Movements.styles'
+import { SectionList } from 'react-native'
+import Divider from '../atoms/Divider'
+import ListEmptyIndicator from '../atoms/ListEmptyIndicator'
+import MovementItem from './MovementItem'
+import React, { useMemo } from 'react'
+import SectionListTitle from '../atoms/SectionListTitle'
 
 type Props = {
   movements: Movement[]
