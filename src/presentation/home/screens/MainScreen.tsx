@@ -1,16 +1,27 @@
-import { View, Text } from 'react-native'
 import React from 'react'
+import { View, SafeAreaView, StyleSheet } from 'react-native'
+import { Text } from '@femsa-core'
+import IconPhone from 'src/components/home/phoneHomeIcon'
 
-const HomeScreen = () => {
+export const HomeScreen = () => {
   return (
-    <View>
-      <Text
-        style={{ fontFamily: 'Poppins-SemiBold', fontSize: 25, color: 'black' }}
-      >
-        HomeScreen
-      </Text>
-    </View>
+    <SafeAreaView style={styles.safeView}>
+      <View style={styles.container}>
+        <IconPhone />
+        <Text variant="subtitle-semibold">Pantalla home</Text>
+      </View>
+    </SafeAreaView>
   )
 }
 
-export default HomeScreen
+const styles = StyleSheet.create({
+  safeView: {
+    backgroundColor: 'white',
+    height: '100%',
+  },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+})

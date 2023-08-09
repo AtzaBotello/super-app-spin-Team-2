@@ -1,12 +1,127 @@
-import { View, Text } from 'react-native'
+/* eslint-disable @typescript-eslint/no-var-requires */
 import React from 'react'
+import { Image, StyleSheet, View, ScrollView, SafeAreaView } from 'react-native'
+import { Banner, NavBar, StackedCardGrid, Text } from '@femsa-core'
+import { BenefitInfoCard } from 'src/components/BenefitInfoCard'
+import { BenefitPointsCard } from 'src/components/BenefitPointsCard'
 
-const BenefitsScreen = () => {
+interface StackedCardProps {
+  title: string
+  icon: JSX.Element
+  onPress?: () => void
+  titlesSize?: string
+}
+
+const historial = require('../../../images/checkHistory.png')
+const changePoints = require('../../../images/changePoints.png')
+
+const spinnerBanner = require('../../../images/Banner1.png')
+
+export const BenefitsScreen = () => {
+  const data: StackedCardProps[] = [
+    {
+      title: 'Consulta tu historial',
+      icon: <Image source={historial} />,
+      onPress: () => console.log('hello word'),
+    },
+    {
+      title: 'Cambiá tus puntos',
+      icon: <Image source={changePoints} />,
+      onPress: () => console.log('hello word'),
+    },
+  ]
+
+  const banners = [
+    {
+      id: 1,
+      title: 'Spinner Volaris',
+      banner: {
+        image: spinnerBanner,
+        type: 'allied_link',
+        url: 'www.volaris.com',
+      },
+    },
+    {
+      id: 2,
+      title: 'Spinner Volaris',
+      banner: {
+        image: spinnerBanner,
+        type: 'allied_link',
+        url: 'www.volaris.com',
+      },
+    },
+  ]
+
   return (
-    <View>
-      <Text>BenefitsScreen</Text>
-    </View>
+    <SafeAreaView style={styles.safeAreaStyle}>
+      <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+        <NavBar variant="default">
+          <Text style={{ fontSize: 18 }}>Beneficios</Text>
+        </NavBar>
+        <BenefitPointsCard />
+
+        <View>
+          <StackedCardGrid
+            data={data}
+            titlesSize="default"
+            numberOfColumns={2}
+            containerStyle={styles.stackedContainer}
+          />
+        </View>
+
+        <BenefitInfoCard
+          title={'Acumula Productos'}
+          text={
+            'Muy pronto podras sumar tus compras y ganar productos de regalo'
+          }
+          image={require('../../../images/startube.png')}
+        />
+
+        <BenefitInfoCard
+          title={'Gana más puntos'}
+          text={
+            'Muy pronto podras sumar tus compras y ganar productos de regalo'
+          }
+          image={require('../../../images/star.png')}
+        />
+
+        <BenefitInfoCard
+          title={'Suma al comprar'}
+          text={
+            'Muy pronto podras sumar tus compras y ganar productos de regalo'
+          }
+          image={require('../../../images/OrageRibbon.png')}
+        />
+
+        <Banner
+          banners={banners}
+          loading={false}
+          onPress={() => console.log('banner press')}
+          movingTime={2000}
+        />
+      </ScrollView>
+    </SafeAreaView>
   )
 }
 
-export default BenefitsScreen
+const styles = StyleSheet.create({
+  safeAreaStyle: {
+    height: '100%',
+    backgroundColor: 'white',
+  },
+  container: {
+    marginHorizontal: 18,
+  },
+  stackedContainer: {
+    marginVertical: 40,
+  },
+  row: {
+    flexDirection: 'row',
+  },
+  image: {
+    width: 200,
+    height: 200,
+    marginBottom: 12,
+    alignSelf: 'center',
+  },
+})
