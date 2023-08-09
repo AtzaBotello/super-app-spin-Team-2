@@ -4,6 +4,7 @@ import { Image, StyleSheet, View, ScrollView, SafeAreaView } from 'react-native'
 import { Banner, NavBar, StackedCardGrid, Text } from '@femsa-core'
 import { BenefitInfoCard } from '@components/BenefitInfoCard'
 import { BenefitPointsCard } from '@components/BenefitPointsCard'
+import { useAppNavigation } from '@src/hooks/navigation'
 
 interface StackedCardProps {
   title: string
@@ -18,11 +19,12 @@ const changePoints = require('../../../assets/images/changePoints.png')
 const spinnerBanner = require('../../../assets/images/Banner1.png')
 
 export const BenefitsScreen = () => {
+  const { navigate } = useAppNavigation()
   const data: StackedCardProps[] = [
     {
       title: 'Consulta tu historial',
       icon: <Image source={historial} />,
-      onPress: () => console.log('hello word'),
+      onPress: () => navigate('MovementsScreen'),
     },
     {
       title: 'Cambiá tus puntos',

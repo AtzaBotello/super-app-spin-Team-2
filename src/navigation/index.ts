@@ -1,2 +1,2 @@
-export { default as MovementNavigator } from './MovementNavigation'
+export { default as AppNavigation } from './AppNavigation'
 export { default as TabNav } from './TabNav'

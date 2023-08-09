@@ -3,7 +3,7 @@ import { Movement } from '@src/types'
 import { movementsListItemStyles } from '@src/theme/Movements.styles'
 import { Text } from '@femsa-core'
 import { TouchableOpacity, View } from 'react-native'
-import { useMovementNavigation } from '@src/hooks/navigation'
+import { useAppNavigation } from '@src/hooks/navigation'
 import EntityIcon from '../EntityIcon'
 import React from 'react'
 
@@ -12,7 +12,7 @@ type Props = {
 }
 
 const MovementItem = ({ movement }: Props) => {
-  const { navigate } = useMovementNavigation()
+  const { navigate } = useAppNavigation()
   const onPress = () => {
     navigate('MovementDetailScreen', { movement })
   }

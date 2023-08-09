@@ -1,7 +1,7 @@
 import { Divider, InfoSection } from '@src/components'
 import { formatDate } from '@src/utils/dates'
 import { mountByPoints } from '@src/utils/movements'
-import { MovementDetailScreenProps } from '@src/navigation/MovementNavigation'
+import { MovementDetailScreenProps } from '@src/navigation/AppNavigation'
 import { View } from 'react-native'
 import React from 'react'
 

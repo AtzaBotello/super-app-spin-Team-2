@@ -7,33 +7,32 @@ import {
   MovementDetailScreen,
   MovementsScreen,
 } from '@src/presentation/movements'
-import { MovementStackParamList } from '@src/types'
+import { AppStackParamList } from '@src/types'
+import TabNav from './TabNav'
 
 export type MovementDetailScreenProps = NativeStackScreenProps<
-  MovementStackParamList,
+  AppStackParamList,
   'MovementDetailScreen'
 >
 
-const MovementStack = createNativeStackNavigator<MovementStackParamList>()
+const AppStack = createNativeStackNavigator<AppStackParamList>()
 
 const MovementNavigator = () => {
   return (
-    <MovementStack.Navigator
-      initialRouteName="MovementsScreen"
+    <AppStack.Navigator
+      initialRouteName="TabNav"
       screenOptions={{
         headerShown: false,
         contentStyle: { backgroundColor: 'white' },
       }}
     >
-      <MovementStack.Screen
-        name="MovementsScreen"
-        component={MovementsScreen}
-      />
-      <MovementStack.Screen
+      <AppStack.Screen name="TabNav" component={TabNav} />
+      <AppStack.Screen name="MovementsScreen" component={MovementsScreen} />
+      <AppStack.Screen
         name="MovementDetailScreen"
         component={MovementDetailScreen}
       />
-    </MovementStack.Navigator>
+    </AppStack.Navigator>
   )
 }
 

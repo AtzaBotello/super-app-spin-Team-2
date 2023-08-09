@@ -9,7 +9,8 @@ export type Movement = {
   transactionNo: string
 }
 
-export type MovementStackParamList = {
+export type AppStackParamList = {
+  TabNav: undefined
   MovementsScreen: undefined
   MovementDetailScreen: { movement: Movement }
 }

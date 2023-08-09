@@ -1,11 +1,11 @@
 import { useNavigation } from '@react-navigation/native'
 import { NativeStackNavigationProp } from '@react-navigation/native-stack'
-import { MovementStackParamList } from '@src/types'
+import { AppStackParamList } from '@src/types'
 
-export const useMovementNavigation =
-  (): NativeStackNavigationProp<MovementStackParamList> => {
+export const useAppNavigation =
+  (): NativeStackNavigationProp<AppStackParamList> => {
     const navigation =
-      useNavigation<NativeStackNavigationProp<MovementStackParamList>>()
+      useNavigation<NativeStackNavigationProp<AppStackParamList>>()
 
     return { ...navigation }
   }
