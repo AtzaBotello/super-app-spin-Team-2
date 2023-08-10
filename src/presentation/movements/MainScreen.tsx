@@ -6,29 +6,29 @@ import {
 } from '@components'
 import { MOVEMENT_TAB_ROUTES, MovementTypes } from '@constants/movements'
 import React from 'react'
-import { MOVEMENTS } from '@mocks/movements'
+import { useMovementsContext } from '@hooks/context'
 
 const MovementsScreen = () => {
+  const { movements } = useMovementsContext()
   return (
     <ScreenContainer>
-      {/* TODO: Implementar el goBack de react nativation */}
       <NavBar title="Movimientos" withGoBack />
       <MovementsTypeTabView
         tabsItems={MOVEMENT_TAB_ROUTES}
         scenes={{
           [MovementTypes.ALL]: () => (
-            <MovementsSectionList movements={MOVEMENTS} />
+            <MovementsSectionList movements={movements} />
           ),
           [MovementTypes.OBTAINED]: () => (
             <MovementsSectionList
-              movements={MOVEMENTS.filter(
+              movements={movements.filter(
                 ({ operation }) => operation === 'earned'
               )}
             />
           ),
           [MovementTypes.USED]: () => (
             <MovementsSectionList
-              movements={MOVEMENTS.filter(
+              movements={movements.filter(
                 ({ operation }) => operation === 'used'
               )}
             />

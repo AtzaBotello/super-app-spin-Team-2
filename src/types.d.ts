@@ -14,3 +14,19 @@ export type AppStackParamList = {
   MovementsScreen: undefined
   MovementDetailScreen: { movement: Movement }
 }
+
+export type MovementsContextState = {
+  movements: Movement[]
+  totalPoints: number
+  setMovements: (movements: Movement[]) => void
+}
+
+export type MovementsReducerState = {
+  movements: Movement[]
+  totalPoints: number
+}
+
+export type MovementsReducerAction = {
+  type: 'setMovements'
+  payload: { movements: Movement[] }
+}

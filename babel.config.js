@@ -29,6 +29,7 @@ module.exports = function (api) {
             '@mocks': ['./src/__mocks__'],
             '@navigation': ['./src/navigation'],
             '@hooks': ['./src/hooks'],
+            '@context': ['./src/context'],
           },
         },
       ],

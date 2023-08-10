@@ -1,16 +1,16 @@
 import 'react-native-gesture-handler'
 import React from 'react'
-import { ThemeProvider } from '@femsa-core'
 import { NavigationContainer } from '@react-navigation/native'
 import { AppNavigation } from '@src/navigation'
+import { AppProviders } from '@context/AppProviders'
 
 const App = () => {
   return (
-    <ThemeProvider>
+    <AppProviders>
       <NavigationContainer>
         <AppNavigation />
       </NavigationContainer>
-    </ThemeProvider>
+    </AppProviders>
   )
 }
 
