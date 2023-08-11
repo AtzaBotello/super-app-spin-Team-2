@@ -21,9 +21,7 @@ const NavBar = ({ title, withGoBack }: Props) => {
   }
 
   return (
-    <View
-      style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 15 }}
-    >
+    <View style={{ flexDirection: 'row', alignItems: 'center', margin: 15 }}>
       <StatusBar barStyle="dark-content" backgroundColor={'transparent'} />
       {withGoBack && (
         <TouchableOpacity onPress={onGoBackPress}>

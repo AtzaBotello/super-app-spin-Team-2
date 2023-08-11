@@ -5,6 +5,7 @@ import { Brand } from '@src/types'
 import { Text } from '@femsa-core'
 import { selectBrandScreenStyles } from '@theme/brands.styles'
 import { useAppNavigation } from '@hooks/navigation'
+import { View } from 'react-native'
 
 const SelectBrandScreen = () => {
   const [brands] = useFetchBrands()
@@ -17,12 +18,14 @@ const SelectBrandScreen = () => {
   }
 
   return (
-    <ScreenContainer containerStyle={selectBrandScreenStyles.container}>
+    <ScreenContainer>
       <NavBar title="Cambia tus puntos" withGoBack />
-      <Text style={selectBrandScreenStyles.message}>
-        Elige la marca aliada en la que quieres usar tus puntos
-      </Text>
-      <BrandsList brands={brands} onPressItem={onPressBrand} />
+      <View style={selectBrandScreenStyles.container}>
+        <Text style={selectBrandScreenStyles.message}>
+          Elige la marca aliada en la que quieres usar tus puntos
+        </Text>
+        <BrandsList brands={brands} onPressItem={onPressBrand} />
+      </View>
     </ScreenContainer>
   )
 }

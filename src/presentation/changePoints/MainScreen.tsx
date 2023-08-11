@@ -59,23 +59,18 @@ const MainScreen = ({ route }: ChangePointsScreenProps) => {
   const onContinuePress = () => {
     let amountToChangeAcc = Number(amountToChange)
     const movementsCopy = [...movements]
-
     for (const { points, id: movementId } of movementsByBrand.sort(
       (a, b) => a.points - b.points
     )) {
       const amountPoints = mountByPoints(points)
-
       amountToChangeAcc = amountToChangeAcc - amountPoints
-
       const pointsUsed =
         (amountToChangeAcc < 0 ? Math.abs(amountToChangeAcc) : amountPoints) *
         10
       const movementCopyIndex = movementsCopy.findIndex(
         ({ id }) => id === movementId
       )
-
       movementsCopy[movementCopyIndex].pointsUsed = pointsUsed
-
       movementsCopy.push({
         date: new Date(),
         entity: brand.name,
@@ -86,7 +81,6 @@ const MainScreen = ({ route }: ChangePointsScreenProps) => {
         pointsUsed: 0,
         transactionNo: createTransactionID(),
       })
-
       if (amountToChangeAcc <= 0) break
     }
 
@@ -96,7 +90,7 @@ const MainScreen = ({ route }: ChangePointsScreenProps) => {
   }
 
   return (
-    <ScreenContainer containerStyle={changePointsScreenStyles.container}>
+    <ScreenContainer>
       <NavBar title="Cambia tus puntos" withGoBack />
       {/* TODO: Agregar el componente que muestra los puntos */}
 
