@@ -126,14 +126,7 @@ const MainScreen = ({ route }: ChangePointsScreenProps) => {
           <BrandChangePointsAlert minAmount={brand.minAmount} />
         )}
       </View>
-      <View
-        style={{
-          flex: 1,
-          justifyContent: 'flex-end',
-          marginBottom: 30,
-          marginHorizontal: 15,
-        }}
-      >
+      <View style={changePointsScreenStyles.buttonContainer}>
         <Button
           text="Continuar"
           onPress={onContinuePress}

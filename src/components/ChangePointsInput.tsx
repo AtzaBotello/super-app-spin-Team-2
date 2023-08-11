@@ -1,6 +1,7 @@
-import { View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import React from 'react'
 import { Text, TextInput } from '@femsa-core'
+import { Colors } from '@src/theme/colors'
 
 type Props = {
   amount: string
@@ -17,15 +18,7 @@ const ChangePointsInput = ({
 }: Props) => {
   return (
     <View>
-      <Text
-        style={{
-          fontFamily: 'Poppins-Regular',
-          fontSize: 16,
-          marginBottom: 10,
-        }}
-      >
-        Otro:
-      </Text>
+      <Text style={[styles.text, styles.titleText]}>Otro:</Text>
       <TextInput
         variant="numeric"
         editable={disabled}
@@ -33,13 +26,33 @@ const ChangePointsInput = ({
         label={'Monto en pesos'}
         activeColor="red"
         value={amount}
-        style={{ marginVertical: 10 }}
+        style={styles.input}
       />
-      <Text style={{ marginLeft: 10 }}>
+      <Text style={[styles.text, styles.alertText]}>
         El valor minimo que puedes cambiar es {minPointsAmount}
       </Text>
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  text: {
+    fontFamily: 'Poppins-Regular',
+  },
+  titleText: {
+    fontSize: 16,
+    marginBottom: 10,
+  },
+  input: {
+    fontFamily: 'Poppins-Regular',
+    marginVertical: 10,
+    height: 50,
+  },
+  alertText: {
+    marginLeft: 10,
+    fontSize: 12,
+    color: Colors.contentTertiary,
+  },
+})
 
 export default ChangePointsInput

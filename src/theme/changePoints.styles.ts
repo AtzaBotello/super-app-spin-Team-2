@@ -11,4 +11,10 @@ export const changePointsScreenStyles = StyleSheet.create({
     fontFamily: 'Poppins-Regular',
     color: Colors.contentPrimary,
   },
+  buttonContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    marginBottom: 30,
+    marginHorizontal: 15,
+  },
 })

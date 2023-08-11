@@ -1,3 +1,4 @@
+import { Colors } from '@src/theme/colors'
 import { StyleSheet } from 'react-native'
 
 export const suggestedPointsAmountStyles = StyleSheet.create({
@@ -20,5 +21,11 @@ export const suggestedPointsAmountStyles = StyleSheet.create({
   },
   sugguestedTouchableText: {
     fontFamily: 'Poppins-SemiBold',
+  },
+  pointsText: {
+    fontFamily: 'Poppins-Regular',
+    textAlign: 'center',
+    fontSize: 14,
+    color: Colors.contentTertiary,
   },
 })
