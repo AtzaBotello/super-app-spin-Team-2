@@ -1,24 +1,36 @@
+import { Button } from '@femsa-core'
+import { ChangePointsScreenProps } from '@src/navigation/AppNavigation'
+import { mountByPoints, sumMovementPoints } from '@utils/movements'
+import { useAppNavigation } from '@hooks/navigation'
+import { useMovementsContext } from '@hooks/context'
 import {
   BrandChangePointsAlert,
   ChangePointsInput,
   ScreenContainer,
 } from '@src/components'
-import { useMovementsContext } from '@hooks/context'
-import { ChangePointsScreenProps } from '@src/navigation/AppNavigation'
 import React, { useMemo, useState } from 'react'
-import { Button } from '@femsa-core'
-import { mountByPoints, sumMovementPoints } from '@utils/movements'
-import { useAppNavigation } from '@hooks/navigation'
 
 const MainScreen = ({ route }: ChangePointsScreenProps) => {
-  const { navigate } = useAppNavigation()
   const [amountToChange, setAmountToChange] = useState('')
-  const { movements, setMovements } = useMovementsContext()
   const { brand } = route.params
+  const { movements, setMovements } = useMovementsContext()
+  const { navigate } = useAppNavigation()
+
+  const movementsByBrand = useMemo(
+    () => movements.filter(({ entity }) => entity === brand.name),
+    [movements]
+  )
 
   const hasValidPointsByBrand = useMemo(
-    () => sumMovementPoints(movements, brand.name) >= brand.min,
-    [movements]
+    () =>
+      sumMovementPoints(
+        movementsByBrand.filter(
+          ({ operation, pointsUsed, points }) =>
+            operation === 'earned' && pointsUsed <= points
+        ),
+        brand.name
+      ) >= brand.min,
+    [movementsByBrand]
   )
 
   const canContinue = useMemo(() => {
