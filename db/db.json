@@ -3,32 +3,32 @@
     {
       "name": "Volaris",
       "type": "Movilidad",
-      "min": 20
+      "minAmount": 20
     },
     {
       "name": "Oxxo",
       "type": "Comercio",
-      "min": 15
+      "minAmount": 15
     },
     {
       "name": "Oxxo Gas",
       "type": "Comercio",
-      "min": 10
+      "minAmount": 10
     },
     {
       "name": "VIX",
       "type": "Entretenimiento",
-      "min": 20
+      "minAmount": 20
     },
     {
       "name": "Doña Tota",
       "type": "Alimentación",
-      "min": 20
+      "minAmount": 20
     },
     {
       "name": "Smart Fit",
       "type": "Deportes",
-      "min": 35
+      "minAmount": 35
     }
   ],
   "history": [
