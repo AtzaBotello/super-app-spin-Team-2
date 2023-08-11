@@ -4,6 +4,8 @@ import { Card } from '@femsa-core'
 import { Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import BrandIcon from '../BrandIcon'
+import { RightChevronIcon } from '../atoms/Icons'
+import { Colors } from '@src/theme/colors'
 
 type Props = {
   brand: Brand
@@ -27,6 +29,8 @@ const BrandListItem = ({ brand, onPress }: Props) => {
           <Text style={brandListItemStyles.nameText}>{brand.name}</Text>
           <Text style={brandListItemStyles.typeText}>{brand.type}</Text>
         </View>
+
+        <RightChevronIcon fill={Colors.contentTertiary} />
       </TouchableOpacity>
     </Card>
   )

@@ -53,10 +53,10 @@ export const brandListItemStyles = StyleSheet.create({
   },
   touchableContainer: {
     flexDirection: 'row',
+    alignItems: 'center',
     padding: 20,
   },
   infoContainer: {
-    justifyContent: 'center',
     flex: 1,
     paddingHorizontal: 15,
   },
