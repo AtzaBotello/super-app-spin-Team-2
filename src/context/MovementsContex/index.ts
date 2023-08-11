@@ -5,6 +5,7 @@ import { MovementsContextProvider } from './MovementsContextProvider'
 const INITIAL_CTX_VALUE: MovementsContextState = {
   movements: [],
   totalPoints: 0,
+  amountPoints: 0,
   setMovements: () => {},
 }
 

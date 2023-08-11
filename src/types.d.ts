@@ -26,12 +26,14 @@ export type AppStackParamList = {
 export type MovementsContextState = {
   movements: Movement[]
   totalPoints: number
+  amountPoints: number
   setMovements: (movements: Movement[]) => void
 }
 
 export type MovementsReducerState = {
   movements: Movement[]
   totalPoints: number
+  amountPoints: number
 }
 
 export type MovementsReducerAction = {
