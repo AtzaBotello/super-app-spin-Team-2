@@ -29,7 +29,7 @@ export const BenefitsScreen = () => {
     {
       title: 'Cambiá tus puntos',
       icon: <Image source={changePoints} />,
-      onPress: () => console.log('hello word'),
+      onPress: () => navigate('SelectEntityScreen'),
     },
   ]
 
