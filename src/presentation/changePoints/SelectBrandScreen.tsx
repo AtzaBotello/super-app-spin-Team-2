@@ -3,13 +3,17 @@ import { BrandsList, NavBar, ScreenContainer } from '@src/components'
 import { useFetchBrands } from '@hooks/entities'
 import { Brand } from '@src/types'
 import { Text } from '@femsa-core'
-import { selectBrandScreenStyles } from '@src/theme/brands.styles'
+import { selectBrandScreenStyles } from '@theme/brands.styles'
+import { useAppNavigation } from '@hooks/navigation'
 
 const SelectBrandScreen = () => {
   const [brands] = useFetchBrands()
+  const { navigate } = useAppNavigation()
 
-  const onPressBrand = (brand: Brand) => {
-    console.log(brand)
+  const onPressBrand = ({ name }: Brand) => {
+    navigate('ChangePointsScreen', {
+      brand: name,
+    })
   }
 
   return (

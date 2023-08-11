@@ -19,7 +19,7 @@ export type AppStackParamList = {
   MovementsScreen: undefined
   MovementDetailScreen: { movement: Movement }
   SelectBrandScreen: undefined
-  ChangePointsScreen: { entity: string }
+  ChangePointsScreen: { brand: string }
 }
 
 export type MovementsContextState = {
