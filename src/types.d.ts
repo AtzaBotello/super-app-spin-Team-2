@@ -6,6 +6,7 @@ export type Movement = {
   id: number
   operation: 'earned' | 'used'
   points: number
+  pointsUsed: number
   transactionNo: string
 }
 

@@ -8,11 +8,12 @@ import { ChangePointsScreenProps } from '@src/navigation/AppNavigation'
 import React, { useMemo, useState } from 'react'
 import { Button } from '@femsa-core'
 import { mountByPoints, sumMovementPoints } from '@utils/movements'
-import { Movement } from '@src/types'
+import { useAppNavigation } from '@hooks/navigation'
 
 const MainScreen = ({ route }: ChangePointsScreenProps) => {
+  const { navigate } = useAppNavigation()
   const [amountToChange, setAmountToChange] = useState('')
-  const { movements } = useMovementsContext()
+  const { movements, setMovements } = useMovementsContext()
   const { brand } = route.params
 
   const hasValidPointsByBrand = useMemo(
@@ -28,17 +29,43 @@ const MainScreen = ({ route }: ChangePointsScreenProps) => {
   }, [amountToChange])
 
   const onContinuePress = () => {
-    let amountToChangeNumber = Number(amountToChange)
-    const movementsByBrand = movements.filter((x) => x.entity === brand.name)
-    const movementsToChangeStatus: Movement[] = []
+    let amountToChangeAcc = Number(amountToChange)
+    const movementsCopy = [...movements]
+    const movementsByBrand = movements.filter(
+      ({ entity }) => entity === brand.name
+    )
 
-    for (const movement of movementsByBrand) {
-      movementsToChangeStatus.push(movement)
-      amountToChangeNumber -= mountByPoints(movement.points)
-      if (amountToChangeNumber <= 0) break
+    for (const { points, id: movementId } of movementsByBrand) {
+      const amountPoints = mountByPoints(points)
+
+      amountToChangeAcc = amountToChangeAcc - amountPoints
+
+      const amountUsed =
+        amountToChangeAcc < 0 ? Math.abs(amountToChangeAcc) : amountPoints
+
+      const movementCopyIndex = movementsCopy.findIndex(
+        ({ id }) => id === movementId
+      )
+
+      movementsCopy[movementCopyIndex].pointsUsed = amountUsed
+
+      movementsCopy.push({
+        date: new Date(),
+        entity: brand.name,
+        giftCode: '',
+        id: movementsCopy.length + 1,
+        operation: 'used',
+        points: amountUsed * 10,
+        pointsUsed: 0,
+        transactionNo: '',
+      })
+
+      if (amountToChangeAcc <= 0) break
     }
 
-    console.log(movementsToChangeStatus)
+    setMovements(movementsCopy)
+    // TODO: Cambiar a la pantalla del ticket!
+    navigate('TabNav')
   }
 
   return (
