@@ -1,4 +1,30 @@
 {
+  "brands": [
+    {
+      "name": "Volaris",
+      "type": "Movilidad"
+    },
+    {
+      "name": "Oxxo",
+      "type": "Comercio"
+    },
+    {
+      "name": "Oxxo Gas",
+      "type": "Comercio"
+    },
+    {
+      "name": "VIX",
+      "type": "Entretenimiento"
+    },
+    {
+      "name": "Doña Tota",
+      "type": "Alimentación"
+    },
+    {
+      "name": "Smart Fit",
+      "type": "Deportes"
+    }
+  ],
   "history": [
     {
       "entity": "Oxxo Gas",

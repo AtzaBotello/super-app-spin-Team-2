@@ -9,6 +9,11 @@ export type Movement = {
   transactionNo: string
 }
 
+export type Brand = {
+  name: string
+  type: string
+}
+
 export type AppStackParamList = {
   TabNav: undefined
   MovementsScreen: undefined
@@ -32,3 +37,10 @@ export type MovementsReducerAction = {
   type: 'setMovements'
   payload: { movements: Movement[] }
 }
+
+export type HookLazyFetch<T> = [
+  () => Promise<T>,
+  { loading: boolean; error?: object },
+]
+
+export type HookFetch<T> = [T, { loading: boolean; error?: object }]
