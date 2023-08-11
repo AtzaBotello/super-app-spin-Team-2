@@ -3,6 +3,7 @@ import React, { useMemo } from 'react'
 import { suggestedPointsAmountStyles } from './styles'
 import { Text } from '@femsa-core'
 import { Colors } from '@src/theme/colors'
+import { currencyFormat } from '@src/utils/numbers'
 
 type Props = {
   onPressAmount: (amount: number) => void
@@ -38,7 +39,7 @@ const SugguestedTouchable = ({ amount, points, onPressAmount }: Props) => {
           },
         ]}
       >
-        {points / 10}
+        {currencyFormat(amountByPoints)}
       </Text>
     </TouchableOpacity>
   )

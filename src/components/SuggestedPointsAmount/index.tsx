@@ -2,6 +2,7 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import { suggestedPointsAmountStyles } from './styles'
 import SugguestedTouchable from './SugguestedTouchable'
+import { unitsFormat } from '@src/utils/numbers'
 
 type Props = {
   sugestedPoints: number[]
@@ -26,7 +27,9 @@ const SuggestedPointsAmount = ({
             amount={amount}
             points={points}
           />
-          <Text style={{ textAlign: 'center' }}>{points} puntos</Text>
+          <Text style={suggestedPointsAmountStyles.pointsText}>
+            {unitsFormat(points)} puntos
+          </Text>
         </View>
       ))}
     </View>
