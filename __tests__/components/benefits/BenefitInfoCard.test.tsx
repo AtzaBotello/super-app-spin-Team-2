@@ -7,7 +7,7 @@ import { BenefitInfoCard } from '../../../src/components/BenefitInfoCard'
 describe('Benefit Info Card list Test', () => {
   const title = 'Test title'
   const text = 'Test text'
-  const image = require('../../../src/images/star.png')
+  const image = require('../../../src/assets/images/star.png')
   it('renders correctly with given props', () => {
     const { getByText, getByTestId } = render(
       <BenefitInfoCard title={title} text={text} image={image} />,
