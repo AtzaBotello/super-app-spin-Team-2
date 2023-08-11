@@ -18,7 +18,7 @@ export type AppStackParamList = {
   TabNav: undefined
   MovementsScreen: undefined
   MovementDetailScreen: { movement: Movement }
-  SelectEntityScreen: undefined
+  SelectBrandScreen: undefined
   ChangePointsScreen: { entity: string }
 }
 

@@ -3,7 +3,7 @@ import { BrandsList, NavBar, ScreenContainer } from '@src/components'
 import { useFetchBrands } from '@hooks/entities'
 import { Brand } from '@src/types'
 
-const SelectEntityScreen = () => {
+const SelectBrandScreen = () => {
   const [brands] = useFetchBrands()
 
   const onPressBrand = (brand: Brand) => {
@@ -18,4 +18,4 @@ const SelectEntityScreen = () => {
   )
 }
 
-export default SelectEntityScreen
+export default SelectBrandScreen

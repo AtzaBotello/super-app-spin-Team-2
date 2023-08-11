@@ -9,7 +9,7 @@ import {
 } from '@src/presentation/movements'
 import {
   ChangePointsScreen,
-  SelectEntityScreen,
+  SelectBrandScreen,
 } from '@src/presentation/changePoints'
 import { AppStackParamList } from '@src/types'
 import TabNav from './TabNav'
@@ -35,10 +35,7 @@ const MovementNavigator = () => {
         name="ChangePointsScreen"
         component={ChangePointsScreen}
       />
-      <AppStack.Screen
-        name="SelectEntityScreen"
-        component={SelectEntityScreen}
-      />
+      <AppStack.Screen name="SelectBrandScreen" component={SelectBrandScreen} />
       <AppStack.Screen name="MovementsScreen" component={MovementsScreen} />
       <AppStack.Screen
         name="MovementDetailScreen"
