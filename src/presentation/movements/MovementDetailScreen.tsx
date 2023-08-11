@@ -5,13 +5,14 @@ import {
   NavBar,
   ScreenContainer,
 } from '@src/components'
-import { formatDate } from '@src/utils/dates'
-import { mountByPoints } from '@src/utils/movements'
+import { formatDate } from '@utils/dates'
+import { mountByPoints } from '@utils/movements'
 import { MovementDetailScreenProps } from '@src/navigation/AppNavigation'
 import React from 'react'
 import { Text } from '@femsa-core'
 import { View } from 'react-native'
-import { movementDetailStyles } from '@src/theme/movements.styles'
+import { movementDetailStyles } from '@theme/movements.styles'
+import { currencyFormat, unitsFormat } from '@utils/numbers'
 
 const MovementDetailScreen = ({ route }: MovementDetailScreenProps) => {
   const {
@@ -38,14 +39,14 @@ const MovementDetailScreen = ({ route }: MovementDetailScreenProps) => {
             <Text style={movementDetailStyles.operationIndicator}>
               {movement.operation === 'earned' ? '+' : '-'}
             </Text>
-            {movement.points}
+            {unitsFormat(movement.points)}
           </Text>
         </BrandCard>
       </View>
       <View style={movementDetailStyles.section}>
         <InfoSection
           label="Monto total:"
-          value={mountByPoints(movement.points)}
+          value={currencyFormat(mountByPoints(movement.points))}
           containerStyle={movementDetailStyles.sectionInfo}
         />
         <InfoSection

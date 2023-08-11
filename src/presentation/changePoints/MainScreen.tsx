@@ -1,6 +1,10 @@
 import { Button, Text } from '@femsa-core'
 import { ChangePointsScreenProps } from '@src/navigation/AppNavigation'
-import { mountByPoints, sumMovementPoints } from '@utils/movements'
+import {
+  createTransactionID,
+  mountByPoints,
+  sumMovementPoints,
+} from '@utils/movements'
 import { useAppNavigation } from '@hooks/navigation'
 import { useMovementsContext } from '@hooks/context'
 import {
@@ -66,7 +70,6 @@ const MainScreen = ({ route }: ChangePointsScreenProps) => {
       const pointsUsed =
         (amountToChangeAcc < 0 ? Math.abs(amountToChangeAcc) : amountPoints) *
         10
-
       const movementCopyIndex = movementsCopy.findIndex(
         ({ id }) => id === movementId
       )
@@ -81,7 +84,7 @@ const MainScreen = ({ route }: ChangePointsScreenProps) => {
         operation: 'used',
         points: pointsUsed,
         pointsUsed: 0,
-        transactionNo: '',
+        transactionNo: createTransactionID(),
       })
 
       if (amountToChangeAcc <= 0) break
@@ -93,7 +96,7 @@ const MainScreen = ({ route }: ChangePointsScreenProps) => {
   }
 
   return (
-    <ScreenContainer>
+    <ScreenContainer containerStyle={changePointsScreenStyles.container}>
       <NavBar title="Cambia tus puntos" withGoBack />
       {/* TODO: Agregar el componente que muestra los puntos */}
 
@@ -117,6 +120,7 @@ const MainScreen = ({ route }: ChangePointsScreenProps) => {
 
         <ChangePointsInput
           amount={amountToChange}
+          movementsPointsByBrand={movementsPointsByBrand}
           onChange={setAmountToChange}
           minPointsAmount={brand.minAmount}
           disabled={hasValidPointsByBrand}
@@ -130,6 +134,7 @@ const MainScreen = ({ route }: ChangePointsScreenProps) => {
         <Button
           text="Continuar"
           onPress={onContinuePress}
+          styleText={{ fontFamily: 'Poppins-Medium' }}
           disabled={!canContinue}
         />
       </View>

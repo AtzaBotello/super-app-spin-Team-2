@@ -1,6 +1,9 @@
 import React from 'react'
-import { NavBar as FemsaNavBar, Text } from '@femsa-core'
+import { Text } from '@femsa-core'
 import { useNavigation } from '@react-navigation/native'
+import { LeftChevronIcon } from './atoms/Icons'
+import { Colors } from '@src/theme/colors'
+import { StatusBar, TouchableOpacity, View } from 'react-native'
 
 type Props = {
   title: string
@@ -18,14 +21,24 @@ const NavBar = ({ title, withGoBack }: Props) => {
   }
 
   return (
-    <FemsaNavBar
-      variant={withGoBack ? 'default' : 'primary'}
-      iconOnPress={onGoBackPress}
+    <View
+      style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 15 }}
     >
-      <Text style={{ fontFamily: 'Poppins-SemiBold', fontSize: 18 }}>
+      <StatusBar barStyle="dark-content" backgroundColor={'transparent'} />
+      {withGoBack && (
+        <TouchableOpacity onPress={onGoBackPress}>
+          <LeftChevronIcon
+            fill={Colors.contentSecondary}
+            height={20}
+            width={20}
+            style={{ marginRight: 10, bottom: 2 }}
+          />
+        </TouchableOpacity>
+      )}
+      <Text style={{ fontFamily: 'Poppins-SemiBold', fontSize: 20 }}>
         {title}
       </Text>
-    </FemsaNavBar>
+    </View>
   )
 }
 

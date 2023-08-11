@@ -26,16 +26,15 @@ const BrandChangePointsAlert = ({ minAmount }: Props) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    height: 100,
     backgroundColor: Colors.contextualPausedSurface,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 8,
-    padding: 15,
     marginVertical: 15,
+    padding: 25,
   },
   alertText: {
-    fontSize: 14,
+    fontSize: 13,
     fontFamily: 'Poppins-Regular',
     color: Colors.contentPrimary,
   },

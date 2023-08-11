@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 import React from 'react'
 import { Image, StyleSheet, View, ScrollView, SafeAreaView } from 'react-native'
-import { Banner, NavBar, StackedCardGrid, Text } from '@femsa-core'
+import { Banner, StackedCardGrid } from '@femsa-core'
 import { BenefitInfoCard } from '@components/BenefitInfoCard'
 import { BenefitPointsCard } from '@components/BenefitPointsCard'
 import { useAppNavigation } from '@src/hooks/navigation'
+import { NavBar } from '@src/components'
 
 interface StackedCardProps {
   title: string
@@ -57,9 +58,8 @@ export const BenefitsScreen = () => {
   return (
     <SafeAreaView style={styles.safeAreaStyle}>
       <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-        <NavBar variant="default">
-          <Text style={{ fontSize: 18 }}>Beneficios</Text>
-        </NavBar>
+        <NavBar title="Beneficios" withGoBack={false} />
+
         <BenefitPointsCard />
 
         <View>

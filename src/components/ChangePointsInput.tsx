@@ -8,6 +8,7 @@ type Props = {
   amount: string
   minPointsAmount: number
   disabled?: boolean
+  movementsPointsByBrand: number
   onChange: (amount: string) => void
 }
 
@@ -16,10 +17,13 @@ const ChangePointsInput = ({
   disabled,
   onChange,
   amount,
+  movementsPointsByBrand,
 }: Props) => {
   return (
     <View>
-      <Text style={[styles.text, styles.titleText]}>Otro:</Text>
+      {movementsPointsByBrand >= 1000 && (
+        <Text style={[styles.text, styles.titleText]}>Otro:</Text>
+      )}
       <TextInput
         variant="numeric"
         editable={disabled}
