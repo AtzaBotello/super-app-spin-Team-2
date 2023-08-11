@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, StyleSheet } from 'react-native'
 import { Text, Card } from '@femsa-core'
-import EntityIcon from '../EntityIcon'
+import BrandIcon from '@components/BrandIcon'
 import { ClipboardIcon } from '../atoms/Icons'
 
 const cardHeight = 200
@@ -19,7 +19,7 @@ export const InfoCardWithIcon = ({
 }: CardProps) => {
   return (
     <Card style={styles.box} shadowColor="gray">
-      <EntityIcon entity={icon} iconProps={styles.iconLogo} />
+      <BrandIcon brand={icon} iconProps={styles.iconLogo} />
       <Text variant="title-one-regular" style={styles.titleCard}>
         {title}
       </Text>

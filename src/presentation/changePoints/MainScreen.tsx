@@ -18,6 +18,7 @@ import {
 import React, { useMemo, useState } from 'react'
 import { changePointsScreenStyles } from '@src/theme/changePoints.styles'
 import { View } from 'react-native'
+import { PointsCardConvertion } from '@src/components/PointsCard/PointsCardConvertion'
 
 const MainScreen = ({ route }: ChangePointsScreenProps) => {
   const [amountToChange, setAmountToChange] = useState('')
@@ -92,7 +93,12 @@ const MainScreen = ({ route }: ChangePointsScreenProps) => {
   return (
     <ScreenContainer>
       <NavBar title="Cambia tus puntos" withGoBack />
-      {/* TODO: Agregar el componente que muestra los puntos */}
+      <View style={changePointsScreenStyles.pointsContainer}>
+        <PointsCardConvertion
+          title="Tienes"
+          points={movementsPointsByBrand.toString()}
+        />
+      </View>
 
       <Divider />
 

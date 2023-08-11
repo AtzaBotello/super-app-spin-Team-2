@@ -1,18 +1,15 @@
 import 'react-native-gesture-handler'
 import React from 'react'
-import { ThemeProvider } from '@react-navigation/native'
 import { AppProviders } from '@context/AppProviders'
-import { DetailMovementScreen } from '@presentation/redeem/screens/DetailMovementScreen'
-import { BottomSheet, SnackBar } from '@femsa-core'
+import { AppNavigation } from './navigation'
+import { NavigationContainer } from '@react-navigation/native'
 
 const App = () => {
   return (
     <AppProviders>
-      <ThemeProvider>
-        <DetailMovementScreen points="10000" />
-        <BottomSheet.Component />
-        <SnackBar.Component />
-      </ThemeProvider>
+      <NavigationContainer>
+        <AppNavigation />
+      </NavigationContainer>
     </AppProviders>
   )
 }
