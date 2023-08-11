@@ -1,29 +1,12 @@
 import React from 'react'
 import { StyleSheet, View, Image } from 'react-native'
-import { Text } from '@femsa-core'
+import { PointsCardConvertion } from './PointsCard/PointsCardConvertion'
 
-export const BenefitPointsCard = () => {
+export const BenefitPointsCard = ({ points }: { points: string }) => {
   return (
     <View>
       <View style={[styles.row, { justifyContent: 'space-between' }]}>
-        <View>
-          <Text variant="content-one-semibold" style={{ fontWeight: 'bold' }}>
-            Tienes
-          </Text>
-          <Text
-            variant="title-one-semibold"
-            style={{ fontWeight: 'bold' }}
-            testID="points-text"
-          >
-            10,657 puntos
-          </Text>
-          <View style={styles.pointConversionContainer}>
-            <Image source={require('../../femsa-core/assets/points.png')} />
-            <Text variant="small-body-bold" style={styles.pointConversion}>
-              Valen $10657
-            </Text>
-          </View>
-        </View>
+        <PointsCardConvertion title="Tienes" points={points} />
         <View>
           <Image
             source={require('../assets/images/blueRibbon.png')}
@@ -40,18 +23,24 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
   },
+  pointsText: {
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
   pointConversionContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: 'skyblue',
+    alignSelf: 'center',
+    backgroundColor: '#C9E9F3',
     borderRadius: 10,
     paddingHorizontal: 10,
   },
   pointConversion: {
     paddingVertical: 2,
     paddingHorizontal: 4,
-    alignContent: 'center',
-    justifyContent: 'center',
+    color: '#006686',
+    fontWeight: '600',
+    paddingLeft: 5,
   },
   smallImage: {
     width: 120,

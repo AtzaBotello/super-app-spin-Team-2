@@ -60,7 +60,7 @@ export const BenefitsScreen = () => {
       <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
         <NavBar title="Beneficios" withGoBack={false} />
 
-        <BenefitPointsCard />
+        <BenefitPointsCard points="10657" />
 
         <View>
           <StackedCardGrid
