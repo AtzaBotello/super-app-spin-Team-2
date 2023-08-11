@@ -13,7 +13,7 @@ export type Movement = {
 export type Brand = {
   name: string
   type: string
-  min: number
+  minAmount: number
 }
 
 export type AppStackParamList = {

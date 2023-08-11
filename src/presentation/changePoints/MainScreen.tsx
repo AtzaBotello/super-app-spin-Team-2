@@ -29,14 +29,16 @@ const MainScreen = ({ route }: ChangePointsScreenProps) => {
             operation === 'earned' && pointsUsed <= points
         ),
         brand.name
-      ) >= brand.min,
+      ) >= brand.minAmount,
     [movementsByBrand]
   )
 
   const canContinue = useMemo(() => {
     const amountNumber = Number(amountToChange)
     return (
-      amountNumber != 0 && amountNumber >= brand.min && amountNumber <= 1000
+      amountNumber != 0 &&
+      amountNumber >= brand.minAmount &&
+      amountNumber <= 1000
     )
   }, [amountToChange])
 
@@ -85,12 +87,12 @@ const MainScreen = ({ route }: ChangePointsScreenProps) => {
       <ChangePointsInput
         amount={amountToChange}
         onChange={setAmountToChange}
-        minPointsAmount={brand.min}
+        minPointsAmount={brand.minAmount}
         disabled={hasValidPointsByBrand}
       />
 
       {!hasValidPointsByBrand && (
-        <BrandChangePointsAlert minAmount={brand.min} />
+        <BrandChangePointsAlert minAmount={brand.minAmount} />
       )}
 
       <Button
