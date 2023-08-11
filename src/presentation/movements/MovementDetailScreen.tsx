@@ -1,6 +1,6 @@
 import {
   Divider,
-  EntityCard,
+  BrandCard,
   InfoSection,
   NavBar,
   ScreenContainer,
@@ -26,7 +26,7 @@ const MovementDetailScreen = ({ route }: MovementDetailScreenProps) => {
           movementDetailStyles.cardContainer,
         ]}
       >
-        <EntityCard entity={movement.entity}>
+        <BrandCard brand={movement.entity}>
           <View style={movementDetailStyles.movementMessageContainer}>
             <Text style={movementDetailStyles.movementMessageText}>
               {movement.operation === 'earned'
@@ -40,7 +40,7 @@ const MovementDetailScreen = ({ route }: MovementDetailScreenProps) => {
             </Text>
             {movement.points}
           </Text>
-        </EntityCard>
+        </BrandCard>
       </View>
       <View style={movementDetailStyles.section}>
         <InfoSection

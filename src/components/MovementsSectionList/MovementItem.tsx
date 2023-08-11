@@ -4,7 +4,7 @@ import { movementsListItemStyles } from '@src/theme/movements.styles'
 import { Text } from '@femsa-core'
 import { TouchableOpacity, View } from 'react-native'
 import { useAppNavigation } from '@src/hooks/navigation'
-import EntityIcon from '../EntityIcon'
+import BrandIcon from '../BrandIcon'
 import React from 'react'
 
 type Props = {
@@ -24,8 +24,8 @@ const MovementItem = ({ movement }: Props) => {
       style={movementsListItemStyles.container}
     >
       <View>
-        <EntityIcon
-          entity={movement.entity}
+        <BrandIcon
+          brand={movement.entity}
           iconProps={{ width: 45, height: 45 }}
         />
       </View>

@@ -3,7 +3,7 @@ import { brandListItemStyles } from '@src/theme/brands.styles'
 import { Card } from '@femsa-core'
 import { Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
-import EntityIcon from '../EntityIcon'
+import BrandIcon from '../BrandIcon'
 
 type Props = {
   brand: Brand
@@ -22,7 +22,7 @@ const BrandListItem = ({ brand, onPress }: Props) => {
         onPress={onPressItem}
         style={brandListItemStyles.touchableContainer}
       >
-        <EntityIcon entity={brand.name} iconProps={{ height: 55, width: 55 }} />
+        <BrandIcon brand={brand.name} iconProps={{ height: 55, width: 55 }} />
         <View style={brandListItemStyles.infoContainer}>
           <Text style={brandListItemStyles.nameText}>{brand.name}</Text>
           <Text style={brandListItemStyles.typeText}>{brand.type}</Text>

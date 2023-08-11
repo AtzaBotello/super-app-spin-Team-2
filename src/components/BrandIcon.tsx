@@ -10,12 +10,12 @@ import {
 import { SvgProps } from 'react-native-svg'
 
 type Props = {
-  entity: string
+  brand: string
   iconProps?: SvgProps
 }
 
-const EntityIcon = ({ entity, iconProps }: Props) => {
-  switch (entity) {
+const BrandIcon = ({ brand, iconProps }: Props) => {
+  switch (brand) {
     case 'Oxxo':
       return <OxxoIcon {...iconProps} />
 
@@ -38,4 +38,4 @@ const EntityIcon = ({ entity, iconProps }: Props) => {
   }
 }
 
-export default EntityIcon
+export default BrandIcon
