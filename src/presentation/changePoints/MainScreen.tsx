@@ -7,6 +7,7 @@ import {
   BrandChangePointsAlert,
   ChangePointsInput,
   ScreenContainer,
+  SuggestedPointsAmount,
 } from '@src/components'
 import React, { useMemo, useState } from 'react'
 
@@ -21,7 +22,7 @@ const MainScreen = ({ route }: ChangePointsScreenProps) => {
     [movements]
   )
 
-  const hasValidPointsByBrand = useMemo(
+  const movementsPointsByBrand = useMemo(
     () =>
       sumMovementPoints(
         movementsByBrand.filter(
@@ -29,7 +30,12 @@ const MainScreen = ({ route }: ChangePointsScreenProps) => {
             operation === 'earned' && pointsUsed <= points
         ),
         brand.name
-      ) >= brand.minAmount,
+      ),
+    [movementsByBrand]
+  )
+
+  const hasValidPointsByBrand = useMemo(
+    () => movementsPointsByBrand >= brand.minAmount,
     [movementsByBrand]
   )
 
@@ -45,23 +51,23 @@ const MainScreen = ({ route }: ChangePointsScreenProps) => {
   const onContinuePress = () => {
     let amountToChangeAcc = Number(amountToChange)
     const movementsCopy = [...movements]
-    const movementsByBrand = movements.filter(
-      ({ entity }) => entity === brand.name
-    )
 
-    for (const { points, id: movementId } of movementsByBrand) {
+    for (const { points, id: movementId } of movementsByBrand.sort(
+      (a, b) => a.points - b.points
+    )) {
       const amountPoints = mountByPoints(points)
 
       amountToChangeAcc = amountToChangeAcc - amountPoints
 
-      const amountUsed =
-        amountToChangeAcc < 0 ? Math.abs(amountToChangeAcc) : amountPoints
+      const pointsUsed =
+        (amountToChangeAcc < 0 ? Math.abs(amountToChangeAcc) : amountPoints) *
+        10
 
       const movementCopyIndex = movementsCopy.findIndex(
         ({ id }) => id === movementId
       )
 
-      movementsCopy[movementCopyIndex].pointsUsed = amountUsed
+      movementsCopy[movementCopyIndex].pointsUsed = pointsUsed
 
       movementsCopy.push({
         date: new Date(),
@@ -69,7 +75,7 @@ const MainScreen = ({ route }: ChangePointsScreenProps) => {
         giftCode: '',
         id: movementsCopy.length + 1,
         operation: 'used',
-        points: amountUsed * 10,
+        points: pointsUsed,
         pointsUsed: 0,
         transactionNo: '',
       })
@@ -90,6 +96,17 @@ const MainScreen = ({ route }: ChangePointsScreenProps) => {
         minPointsAmount={brand.minAmount}
         disabled={hasValidPointsByBrand}
       />
+
+      {movementsPointsByBrand > 1000 && (
+        <SuggestedPointsAmount
+          sugestedPoints={
+            movementsPointsByBrand >= 10000
+              ? [500, 1000, 2000, 5000]
+              : [500, 1000]
+          }
+          onPressAmount={(amount) => setAmountToChange(amount.toString())}
+        />
+      )}
 
       {!hasValidPointsByBrand && (
         <BrandChangePointsAlert minAmount={brand.minAmount} />
