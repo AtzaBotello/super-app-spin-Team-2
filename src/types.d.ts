@@ -12,6 +12,7 @@ export type Movement = {
 export type Brand = {
   name: string
   type: string
+  min: number
 }
 
 export type AppStackParamList = {
@@ -19,7 +20,7 @@ export type AppStackParamList = {
   MovementsScreen: undefined
   MovementDetailScreen: { movement: Movement }
   SelectBrandScreen: undefined
-  ChangePointsScreen: { brand: string }
+  ChangePointsScreen: { brand: Brand }
 }
 
 export type MovementsContextState = {

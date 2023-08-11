@@ -19,6 +19,11 @@ export type MovementDetailScreenProps = NativeStackScreenProps<
   'MovementDetailScreen'
 >
 
+export type ChangePointsScreenProps = NativeStackScreenProps<
+  AppStackParamList,
+  'ChangePointsScreen'
+>
+
 const AppStack = createNativeStackNavigator<AppStackParamList>()
 
 const MovementNavigator = () => {

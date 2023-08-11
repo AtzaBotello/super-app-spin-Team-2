@@ -10,9 +10,9 @@ const SelectBrandScreen = () => {
   const [brands] = useFetchBrands()
   const { navigate } = useAppNavigation()
 
-  const onPressBrand = ({ name }: Brand) => {
+  const onPressBrand = (brand: Brand) => {
     navigate('ChangePointsScreen', {
-      brand: name,
+      brand,
     })
   }
 

@@ -2,27 +2,33 @@
   "brands": [
     {
       "name": "Volaris",
-      "type": "Movilidad"
+      "type": "Movilidad",
+      "min": 20
     },
     {
       "name": "Oxxo",
-      "type": "Comercio"
+      "type": "Comercio",
+      "min": 15
     },
     {
       "name": "Oxxo Gas",
-      "type": "Comercio"
+      "type": "Comercio",
+      "min": 10
     },
     {
       "name": "VIX",
-      "type": "Entretenimiento"
+      "type": "Entretenimiento",
+      "min": 20
     },
     {
       "name": "Doña Tota",
-      "type": "Alimentación"
+      "type": "Alimentación",
+      "min": 20
     },
     {
       "name": "Smart Fit",
-      "type": "Deportes"
+      "type": "Deportes",
+      "min": 35
     }
   ],
   "history": [
