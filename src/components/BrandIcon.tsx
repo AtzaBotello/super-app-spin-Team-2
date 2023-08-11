@@ -4,7 +4,9 @@ import {
   OxxoGasIcon,
   OxxoIcon,
   ScorePointsIcon,
+  SmartFitIcon,
   SpinPremiaIcon,
+  VixIcon,
   VolarisIcon,
 } from './atoms/Icons'
 import { SvgProps } from 'react-native-svg'
@@ -33,6 +35,12 @@ const BrandIcon = ({ brand, iconProps }: Props) => {
 
     case 'Volaris':
       return <VolarisIcon {...iconProps} />
+
+    case 'VIX':
+      return <VixIcon {...iconProps} />
+
+    case 'Smart Fit':
+      return <SmartFitIcon {...iconProps} />
     default:
       return <></>
   }

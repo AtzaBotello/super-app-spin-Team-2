@@ -49,6 +49,7 @@ export const brandCardStyles = StyleSheet.create({
 export const brandListItemStyles = StyleSheet.create({
   cardContainer: {
     borderRadius: 12,
+    marginVertical: 8,
   },
   touchableContainer: {
     flexDirection: 'row',
