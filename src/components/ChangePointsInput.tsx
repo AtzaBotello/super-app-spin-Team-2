@@ -2,6 +2,7 @@ import { StyleSheet, View } from 'react-native'
 import React from 'react'
 import { Text, TextInput } from '@femsa-core'
 import { Colors } from '@src/theme/colors'
+import { currencyFormat } from '@src/utils/numbers'
 
 type Props = {
   amount: string
@@ -29,7 +30,7 @@ const ChangePointsInput = ({
         style={styles.input}
       />
       <Text style={[styles.text, styles.alertText]}>
-        El valor minimo que puedes cambiar es {minPointsAmount}
+        El valor minimo que puedes cambiar es {currencyFormat(minPointsAmount)}
       </Text>
     </View>
   )
