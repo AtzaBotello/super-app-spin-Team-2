@@ -7,7 +7,7 @@ import { useMovementsContext } from '@hooks/context'
 import { ChangePointsScreenProps } from '@src/navigation/AppNavigation'
 import React, { useMemo, useState } from 'react'
 import { Button } from '@femsa-core'
-import { mountByPoints, sumPointsByBrand } from '@utils/movements'
+import { mountByPoints, sumMovementPoints } from '@utils/movements'
 import { Movement } from '@src/types'
 
 const MainScreen = ({ route }: ChangePointsScreenProps) => {
@@ -16,7 +16,7 @@ const MainScreen = ({ route }: ChangePointsScreenProps) => {
   const { brand } = route.params
 
   const hasValidPointsByBrand = useMemo(
-    () => sumPointsByBrand(movements, brand.name) >= brand.min,
+    () => sumMovementPoints(movements, brand.name) >= brand.min,
     [movements]
   )
 

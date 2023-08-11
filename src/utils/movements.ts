@@ -75,7 +75,13 @@ export const mapMovementsByDate = (
 }
 
 export const mountByPoints = (points: number) => points / 10
-export const sumPointsByBrand = (movements: Movement[], brandName: string) =>
-  movements
-    .filter((x) => x.entity === brandName)
-    .reduce((points, movement) => points + movement.points, 0)
+
+const sumPoints = (movements: Movement[]) =>
+  movements.reduce((points, movement) => points + movement.points, 0)
+
+export const sumMovementPoints = (movements: Movement[], brandName?: string) =>
+  sumPoints(
+    brandName
+      ? movements.filter(({ entity }) => entity === brandName)
+      : movements
+  )

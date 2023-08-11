@@ -1,4 +1,4 @@
-import { mountByPoints } from '@utils/movements'
+import { mountByPoints, sumMovementPoints } from '@utils/movements'
 import { MovementsReducerAction, MovementsReducerState } from '../../types'
 
 const initialMovementsReducerValue: MovementsReducerState = {
@@ -17,13 +17,8 @@ const movementsReducer = (
       return {
         ...state,
         movements,
-        amountPoints: mountByPoints(
-          movements.reduce((current, { points }) => current + points, 0)
-        ),
-        totalPoints: movements.reduce(
-          (current, { points }) => current + points,
-          0
-        ),
+        amountPoints: mountByPoints(sumMovementPoints(movements)),
+        totalPoints: sumMovementPoints(movements),
       }
     }
     default:
