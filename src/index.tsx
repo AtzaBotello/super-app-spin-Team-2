@@ -9,7 +9,7 @@ const App = () => {
   return (
     <AppProviders>
       <ThemeProvider>
-        <DetailMovementScreen />
+        <DetailMovementScreen points="10000" />
         <BottomSheet.Component />
         <SnackBar.Component />
       </ThemeProvider>
@@ -18,9 +18,3 @@ const App = () => {
 }
 
 export default App
-
-/**
- *  <DetailMovementScreen />
-      <BottomSheet.Component />
-      <SnackBar.Component />
- */

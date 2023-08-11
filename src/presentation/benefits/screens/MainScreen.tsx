@@ -60,7 +60,7 @@ export const BenefitsScreen = () => {
         <NavBar variant="default">
           <Text style={{ fontSize: 18 }}>Beneficios</Text>
         </NavBar>
-        <BenefitPointsCard />
+        <BenefitPointsCard points="10657" />
 
         <View>
           <StackedCardGrid
