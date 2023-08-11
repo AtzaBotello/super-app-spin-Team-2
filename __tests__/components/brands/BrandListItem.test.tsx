@@ -6,7 +6,7 @@ import React from 'react'
 
 describe('Brand list item tests', () => {
   it('Render correctly component', async () => {
-    const brand: Brand = { name: 'Volaris', type: 'Vuelos' }
+    const brand: Brand = { name: 'Volaris', type: 'Vuelos', min: 0 }
     const mockOnPressBrandFn = jest.fn()
     const { getByText } = render(
       <BrandListItem brand={brand} onPress={mockOnPressBrandFn} />,
@@ -20,7 +20,7 @@ describe('Brand list item tests', () => {
   })
 
   it('Correctly component press action', async () => {
-    const brand: Brand = { name: 'Volaris', type: 'Vuelos' }
+    const brand: Brand = { name: 'Volaris', type: 'Vuelos', min: 0 }
     const mockOnPressBrandFn = jest.fn()
 
     render(<BrandListItem brand={brand} onPress={mockOnPressBrandFn} />, {

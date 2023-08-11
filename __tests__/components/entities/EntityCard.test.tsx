@@ -1,17 +1,17 @@
 import React from 'react'
 import { render } from '@testing-library/react-native'
 import { ThemeProvider } from '@femsa-core'
-import { EntityCard } from '@components'
+import { BrandCard } from '@components'
 
 describe('Entity card test', () => {
   it('Render correctly component', async () => {
-    const entity = 'Volaris'
-    const { getByText } = render(<EntityCard entity={entity} />, {
+    const brand = 'Volaris'
+    const { getByText } = render(<BrandCard brand={brand} />, {
       wrapper: ThemeProvider,
     })
 
-    const entityNameRender = getByText(entity)
+    const brandNameRender = getByText(brand)
 
-    expect(entityNameRender).toBeDefined()
+    expect(brandNameRender).toBeDefined()
   })
 })

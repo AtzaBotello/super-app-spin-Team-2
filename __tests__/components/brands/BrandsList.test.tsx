@@ -25,7 +25,7 @@ describe('Brands list tests', () => {
   })
 
   it('Render correctly list item component', async () => {
-    const brands: Brand[] = [{ name: 'Volaris', type: 'Vuelos' }]
+    const brands: Brand[] = [{ name: 'Volaris', type: 'Vuelos', min: 0 }]
     const { getAllByTestId, getByText } = render(
       <BrandsList brands={brands} />,
       {
