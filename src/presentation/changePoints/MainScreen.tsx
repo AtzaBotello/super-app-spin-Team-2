@@ -1,4 +1,4 @@
-import { Button } from '@femsa-core'
+import { Button, Text } from '@femsa-core'
 import { ChangePointsScreenProps } from '@src/navigation/AppNavigation'
 import { mountByPoints, sumMovementPoints } from '@utils/movements'
 import { useAppNavigation } from '@hooks/navigation'
@@ -6,10 +6,14 @@ import { useMovementsContext } from '@hooks/context'
 import {
   BrandChangePointsAlert,
   ChangePointsInput,
+  Divider,
+  NavBar,
   ScreenContainer,
   SuggestedPointsAmount,
 } from '@src/components'
 import React, { useMemo, useState } from 'react'
+import { changePointsScreenStyles } from '@src/theme/changePoints.styles'
+import { View } from 'react-native'
 
 const MainScreen = ({ route }: ChangePointsScreenProps) => {
   const [amountToChange, setAmountToChange] = useState('')
@@ -90,33 +94,52 @@ const MainScreen = ({ route }: ChangePointsScreenProps) => {
 
   return (
     <ScreenContainer>
-      <ChangePointsInput
-        amount={amountToChange}
-        onChange={setAmountToChange}
-        minPointsAmount={brand.minAmount}
-        disabled={hasValidPointsByBrand}
-      />
+      <NavBar title="Cambia tus puntos" withGoBack />
+      {/* TODO: Agregar el componente que muestra los puntos */}
 
-      {movementsPointsByBrand > 1000 && (
-        <SuggestedPointsAmount
-          sugestedPoints={
-            movementsPointsByBrand >= 10000
-              ? [500, 1000, 2000, 5000]
-              : [500, 1000]
-          }
-          onPressAmount={(amount) => setAmountToChange(amount.toString())}
+      <Divider />
+
+      <View style={changePointsScreenStyles.formContainer}>
+        <Text style={changePointsScreenStyles.instructionsText}>
+          Elige o escribe el valor de los puntos que quieres cambiar
+        </Text>
+        {movementsPointsByBrand > 1000 && (
+          <SuggestedPointsAmount
+            amount={Number(amountToChange)}
+            sugestedPoints={
+              movementsPointsByBrand >= 10000
+                ? [500, 1000, 2000, 5000]
+                : [500, 1000]
+            }
+            onPressAmount={(amount) => setAmountToChange(amount.toString())}
+          />
+        )}
+
+        <ChangePointsInput
+          amount={amountToChange}
+          onChange={setAmountToChange}
+          minPointsAmount={brand.minAmount}
+          disabled={hasValidPointsByBrand}
         />
-      )}
 
-      {!hasValidPointsByBrand && (
-        <BrandChangePointsAlert minAmount={brand.minAmount} />
-      )}
-
-      <Button
-        text="Continuar"
-        onPress={onContinuePress}
-        disabled={!canContinue}
-      />
+        {!hasValidPointsByBrand && (
+          <BrandChangePointsAlert minAmount={brand.minAmount} />
+        )}
+      </View>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: 'flex-end',
+          marginBottom: 30,
+          marginHorizontal: 15,
+        }}
+      >
+        <Button
+          text="Continuar"
+          onPress={onContinuePress}
+          disabled={!canContinue}
+        />
+      </View>
     </ScreenContainer>
   )
 }

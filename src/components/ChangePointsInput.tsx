@@ -17,6 +17,15 @@ const ChangePointsInput = ({
 }: Props) => {
   return (
     <View>
+      <Text
+        style={{
+          fontFamily: 'Poppins-Regular',
+          fontSize: 16,
+          marginBottom: 10,
+        }}
+      >
+        Otro:
+      </Text>
       <TextInput
         variant="numeric"
         editable={disabled}
@@ -24,8 +33,11 @@ const ChangePointsInput = ({
         label={'Monto en pesos'}
         activeColor="red"
         value={amount}
+        style={{ marginVertical: 10 }}
       />
-      <Text>El valor minimo que puedes cambiar es {minPointsAmount}</Text>
+      <Text style={{ marginLeft: 10 }}>
+        El valor minimo que puedes cambiar es {minPointsAmount}
+      </Text>
     </View>
   )
 }

@@ -1,20 +1,32 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { View, Text } from 'react-native'
 import React from 'react'
+import { suggestedPointsAmountStyles } from './styles'
+import SugguestedTouchable from './SugguestedTouchable'
 
 type Props = {
   sugestedPoints: number[]
+  amount: number
   onPressAmount: (amount: number) => void
 }
 
-const SuggestedPointsAmount = ({ sugestedPoints, onPressAmount }: Props) => {
+const SuggestedPointsAmount = ({
+  sugestedPoints,
+  onPressAmount,
+  amount,
+}: Props) => {
   return (
-    <View>
+    <View style={suggestedPointsAmountStyles.container}>
       {sugestedPoints.map((points) => (
-        <View key={points}>
-          <TouchableOpacity onPress={() => onPressAmount(points / 10)}>
-            <Text>{points / 10}</Text>
-          </TouchableOpacity>
-          <Text>{points} puntos</Text>
+        <View
+          key={points}
+          style={suggestedPointsAmountStyles.suggestedItemContainer}
+        >
+          <SugguestedTouchable
+            onPressAmount={onPressAmount}
+            amount={amount}
+            points={points}
+          />
+          <Text style={{ textAlign: 'center' }}>{points} puntos</Text>
         </View>
       ))}
     </View>
