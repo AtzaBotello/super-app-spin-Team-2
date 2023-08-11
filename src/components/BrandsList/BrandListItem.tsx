@@ -1,21 +1,34 @@
 import { Brand } from '@src/types'
-import { Text, TouchableOpacity } from 'react-native'
+import { brandListItemStyles } from '@src/theme/brands.styles'
+import { Card } from '@femsa-core'
+import { Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
+import EntityIcon from '../EntityIcon'
 
 type Props = {
   brand: Brand
   onPress?: (brand: Brand) => void
 }
+
 const BrandListItem = ({ brand, onPress }: Props) => {
   const onPressItem = () => {
     if (onPress) onPress(brand)
   }
 
   return (
-    <TouchableOpacity testID="brand-list-item" onPress={onPressItem}>
-      <Text>{brand.name}</Text>
-      <Text>{brand.type}</Text>
-    </TouchableOpacity>
+    <Card style={brandListItemStyles.cardContainer}>
+      <TouchableOpacity
+        testID="brand-list-item"
+        onPress={onPressItem}
+        style={brandListItemStyles.touchableContainer}
+      >
+        <EntityIcon entity={brand.name} iconProps={{ height: 55, width: 55 }} />
+        <View style={brandListItemStyles.infoContainer}>
+          <Text style={brandListItemStyles.nameText}>{brand.name}</Text>
+          <Text style={brandListItemStyles.typeText}>{brand.type}</Text>
+        </View>
+      </TouchableOpacity>
+    </Card>
   )
 }
 
