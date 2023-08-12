@@ -7,20 +7,15 @@ import { formatDate } from '../../../utils/dates'
 import { CardBtnActions } from '../../../components/DetailMovementSection/CardBtnActions'
 import { DetailedInfoRow } from '../../../components/DetailMovementSection/DetailedInfoRow'
 import { returnAllyUrl } from '../../../utils/alliesUrl'
+import { DetailMovementScreenProps } from '@src/navigation/AppNavigation'
+
+import { useAppNavigation } from '@hooks/navigation'
 const cardHeight = 200
 
-interface DetailMovScreenProps {
-  ally: string
-  points: string
-  transaction: string
-}
-
-export const DetailMovementScreen = ({
-  ally = 'Volaris',
-  points = '200',
-  transaction = '5dced89c-2b6e-4a1c-a715-c19b0a51',
-}: DetailMovScreenProps) => {
-  const url = returnAllyUrl(ally)
+export const DetailMovementScreen = ({ route }: DetailMovementScreenProps) => {
+  const { brand, points, trans } = route.params
+  const url = returnAllyUrl(brand)
+  const { navigate } = useAppNavigation()
 
   const handlePress = useCallback(async () => {
     const supported = await Linking.canOpenURL(url)
@@ -43,7 +38,7 @@ export const DetailMovementScreen = ({
   }
 
   const saveGiftPress = () => {
-    console.log('save gift card')
+    navigate('TabNav')
   }
 
   useEffect(() => {
@@ -52,6 +47,7 @@ export const DetailMovementScreen = ({
         text: '¡Listo! Cambiaste tus puntos',
         variant: 'info',
         withIcon: false,
+        textColor: '#ffffff',
         duration: 3000,
       })
     }, 200)
@@ -70,11 +66,11 @@ export const DetailMovementScreen = ({
 
       <View style={styles.infoContainer}>
         <View style={styles.floatCard}>
-          <InfoCardWithIcon icon={ally} title={ally} />
+          <InfoCardWithIcon icon={brand} title={brand} />
         </View>
 
         <View style={styles.infoPointsCard}>
-          {ally === 'Volaris' && (
+          {brand === 'Volaris' && (
             <Text
               variant="text-link-default"
               style={styles.linkText}
@@ -100,7 +96,7 @@ export const DetailMovementScreen = ({
           <Text style={[styles.valueTitle, { marginBottom: 5 }]}>
             Número de transacción
           </Text>
-          <Text style={styles.textCode}>{transaction}</Text>
+          <Text style={styles.textCode}>{trans}</Text>
         </View>
 
         <CardBtnActions useOnPress={handlePress} saveOnPress={saveGiftPress} />

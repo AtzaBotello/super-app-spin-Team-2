@@ -87,7 +87,11 @@ const MainScreen = ({ route }: ChangePointsScreenProps) => {
 
     setMovements(movementsCopy)
     // TODO: Cambiar a la pantalla del ticket!
-    navigate('TabNav')
+    navigate('DetailMovementScreen', {
+      brand: brand.name,
+      points: amountToChange,
+      trans: movementsCopy[movementsCopy.length - 1].transactionNo,
+    })
   }
 
   return (

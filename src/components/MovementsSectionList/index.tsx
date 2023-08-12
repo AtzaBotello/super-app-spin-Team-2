@@ -1,7 +1,7 @@
 import { Colors } from '@src/theme/colors'
 import { mapMovementsByDate } from '@src/utils/movements'
 import { Movement } from '@src/types'
-import { movementsListStyles } from '@src/theme/movements.styles'
+import { movementsListStyles } from '@src/theme/Movements.styles'
 import { SectionList } from 'react-native'
 import Divider from '../atoms/Divider'
 import ListEmptyIndicator from '../atoms/ListEmptyIndicator'

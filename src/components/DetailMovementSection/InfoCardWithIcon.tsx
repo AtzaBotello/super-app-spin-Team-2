@@ -9,7 +9,7 @@ const cardHeight = 200
 interface CardProps {
   icon: string
   title: string
-  code: string
+  code?: string
 }
 
 export const InfoCardWithIcon = ({

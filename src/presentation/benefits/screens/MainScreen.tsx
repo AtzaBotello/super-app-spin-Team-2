@@ -6,6 +6,7 @@ import { BenefitInfoCard } from '@components/BenefitInfoCard'
 import { BenefitPointsCard } from '@components/BenefitPointsCard'
 import { useAppNavigation } from '@src/hooks/navigation'
 import { NavBar } from '@src/components'
+import { useMovementsContext } from '@src/hooks/context'
 
 interface StackedCardProps {
   title: string
@@ -20,6 +21,7 @@ const changePoints = require('../../../assets/images/changePoints.png')
 const spinnerBanner = require('../../../assets/images/Banner1.png')
 
 export const BenefitsScreen = () => {
+  const { totalPoints } = useMovementsContext()
   const { navigate } = useAppNavigation()
   const data: StackedCardProps[] = [
     {
@@ -60,7 +62,7 @@ export const BenefitsScreen = () => {
       <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
         <NavBar title="Beneficios" withGoBack={false} />
 
-        <BenefitPointsCard points="10657" />
+        <BenefitPointsCard points={totalPoints.toString()} />
 
         <View>
           <StackedCardGrid

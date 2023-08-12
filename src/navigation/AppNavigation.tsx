@@ -11,6 +11,7 @@ import {
   ChangePointsScreen,
   SelectBrandScreen,
 } from '@src/presentation/changePoints'
+import { DetailMovementScreen } from '../presentation/redeem/screens/DetailMovementScreen'
 import { AppStackParamList } from '@src/types'
 import TabNav from './TabNav'
 
@@ -22,6 +23,11 @@ export type MovementDetailScreenProps = NativeStackScreenProps<
 export type ChangePointsScreenProps = NativeStackScreenProps<
   AppStackParamList,
   'ChangePointsScreen'
+>
+
+export type DetailMovementScreenProps = NativeStackScreenProps<
+  AppStackParamList,
+  'DetailMovementScreen'
 >
 
 const AppStack = createNativeStackNavigator<AppStackParamList>()
@@ -45,6 +51,10 @@ const MovementNavigator = () => {
       <AppStack.Screen
         name="MovementDetailScreen"
         component={MovementDetailScreen}
+      />
+      <AppStack.Screen
+        name="DetailMovementScreen"
+        component={DetailMovementScreen}
       />
     </AppStack.Navigator>
   )

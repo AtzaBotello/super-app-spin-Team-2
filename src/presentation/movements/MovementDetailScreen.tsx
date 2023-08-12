@@ -11,8 +11,8 @@ import { MovementDetailScreenProps } from '@src/navigation/AppNavigation'
 import React from 'react'
 import { Text } from '@femsa-core'
 import { View } from 'react-native'
-import { movementDetailStyles } from '@theme/movements.styles'
 import { currencyFormat, unitsFormat } from '@utils/numbers'
+import { movementDetailStyles } from '@src/theme/Movements.styles'
 
 const MovementDetailScreen = ({ route }: MovementDetailScreenProps) => {
   const {
