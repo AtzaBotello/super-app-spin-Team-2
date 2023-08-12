@@ -17,8 +17,12 @@ const movementsReducer = (
       return {
         ...state,
         movements,
-        amountPoints: mountByPoints(sumMovementPoints(movements)),
-        totalPoints: sumMovementPoints(movements),
+        amountPoints: mountByPoints(
+          sumMovementPoints(movements.filter((x) => x.operation === 'earned'))
+        ),
+        totalPoints: sumMovementPoints(
+          movements.filter((x) => x.operation === 'earned')
+        ),
       }
     }
     default:
