@@ -77,7 +77,10 @@ export const mapMovementsByDate = (
 export const mountByPoints = (points: number) => points / 10
 
 const sumPoints = (movements: Movement[]) =>
-  movements.reduce((points, movement) => points + movement.points, 0)
+  movements.reduce(
+    (points, movement) => points + (movement.points - movement.pointsUsed),
+    0
+  )
 
 export const sumMovementPoints = (movements: Movement[], brandName?: string) =>
   sumPoints(
