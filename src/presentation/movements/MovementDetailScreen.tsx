@@ -12,7 +12,7 @@ import React from 'react'
 import { Text } from '@femsa-core'
 import { View } from 'react-native'
 import { currencyFormat, unitsFormat } from '@utils/numbers'
-import { movementDetailStyles } from '@src/theme/Movements.styles'
+import { movementDetailStyles } from '@src/theme/movements.styles'
 
 const MovementDetailScreen = ({ route }: MovementDetailScreenProps) => {
   const {

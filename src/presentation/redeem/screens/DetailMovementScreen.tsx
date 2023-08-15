@@ -1,5 +1,11 @@
 import React, { useCallback, useEffect } from 'react'
-import { SafeAreaView, StyleSheet, View, Linking } from 'react-native'
+import {
+  SafeAreaView,
+  StyleSheet,
+  View,
+  Linking,
+  ScrollView,
+} from 'react-native'
 import { NavBar, Text, BottomSheet, SnackBar } from '@femsa-core'
 import { HelpModal } from '../../../components/HelpModal'
 import { InfoCardWithIcon } from '../../../components/DetailMovementSection/InfoCardWithIcon'
@@ -55,52 +61,60 @@ export const DetailMovementScreen = ({ route }: DetailMovementScreenProps) => {
 
   return (
     <SafeAreaView style={styles.safeView}>
-      <View style={styles.navbarContainer}>
-        <NavBar
-          variant="default"
-          title="Detalle del Movimiento"
-          colorTitleStyle="white"
-          chevronIconStyle={{ display: 'none' }}
-        />
-      </View>
-
-      <View style={styles.infoContainer}>
-        <View style={styles.floatCard}>
-          <InfoCardWithIcon icon={brand} title={brand} />
+      <ScrollView>
+        <View style={styles.navbarContainer}>
+          <NavBar
+            variant="default"
+            title="Detalle del Movimiento"
+            colorTitleStyle="white"
+            chevronIconStyle={{ display: 'none' }}
+          />
         </View>
 
-        <View style={styles.infoPointsCard}>
-          {brand === 'Volaris' && (
-            <Text
-              variant="text-link-default"
-              style={styles.linkText}
-              onPress={() => onHelpPress()}
-            >
-              ¿Como puedo usar mi certificado de regalo?
+        <View style={styles.infoContainer}>
+          <View style={styles.floatCard}>
+            <InfoCardWithIcon icon={brand} title={brand} />
+          </View>
+
+          <View style={styles.infoPointsCard}>
+            {brand === 'Volaris' && (
+              <Text
+                variant="text-link-default"
+                style={styles.linkText}
+                onPress={() => onHelpPress()}
+              >
+                ¿Como puedo usar mi certificado de regalo?
+              </Text>
+            )}
+
+            <DetailedInfoRow title="Puntos cambiados" value={points} />
+            <DetailedInfoRow
+              title="Valen"
+              value={`$ ${(Number(points) / 10).toFixed(2)}`}
+            />
+            <DetailedInfoRow
+              title="Fecha"
+              value={'03 de septiembre del 2023'}
+            />
+            <DetailedInfoRow
+              title="Válido hasta el"
+              value={formatDate(Date.now(), 'DD/MM/YYYY')}
+            />
+          </View>
+
+          <View style={[styles.infoPointsCard, { paddingBottom: 20 }]}>
+            <Text style={[styles.valueTitle, { marginBottom: 5 }]}>
+              Número de transacción
             </Text>
-          )}
+            <Text style={styles.textCode}>{trans}</Text>
+          </View>
 
-          <DetailedInfoRow title="Puntos cambiados" value={points} />
-          <DetailedInfoRow
-            title="Valen"
-            value={`$ ${(Number(points) / 10).toFixed(2)}`}
-          />
-          <DetailedInfoRow title="Fecha" value={'03 de septiembre del 2023'} />
-          <DetailedInfoRow
-            title="Válido hasta el"
-            value={formatDate(Date.now(), 'DD/MM/YYYY')}
+          <CardBtnActions
+            useOnPress={handlePress}
+            saveOnPress={saveGiftPress}
           />
         </View>
-
-        <View style={[styles.infoPointsCard, { paddingBottom: 20 }]}>
-          <Text style={[styles.valueTitle, { marginBottom: 5 }]}>
-            Número de transacción
-          </Text>
-          <Text style={styles.textCode}>{trans}</Text>
-        </View>
-
-        <CardBtnActions useOnPress={handlePress} saveOnPress={saveGiftPress} />
-      </View>
+      </ScrollView>
     </SafeAreaView>
   )
 }

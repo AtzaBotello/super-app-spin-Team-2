@@ -29,7 +29,7 @@ const NavBar = ({ title, withGoBack }: Props) => {
             fill={Colors.contentSecondary}
             height={20}
             width={20}
-            style={{ marginRight: 10, bottom: 2 }}
+            style={{ marginRight: 10, bottom: 0 }}
           />
         </TouchableOpacity>
       )}
